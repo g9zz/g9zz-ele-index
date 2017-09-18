@@ -8,35 +8,38 @@
       </el-menu>
     </div>
     <div class="content">
-      <div class="list-one block-question-two clearfix">
-        <div class="l1 up-count">
-          <a href="#">
-            <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
+
+      <div v-for="item in post_list"  class="list-one block-question-two clearfix">
+        <div class="l1 up-count" >
+          <a href="#" >
+            <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px"  :src="item.user.avatar"   alt="头像">
           </a>
         </div>
         <div class="l2">
           <h3 style="margin-top: 10px">
-            <router-link to="/post_detail/1">最近重新恢复了数据?</router-link>
+            <router-link  :to="'post/'+item.hid">{{ item.title }}</router-link>
           </h3>
           <div class="ct">
-
-                          <span class="d post-node">
-                            默认分类
-                          </span>
+            <router-link :to="'/node/'+item.node.hid+'/post'">
+              <span class="d post-node">
+                {{ item.node.displayName }}
+              </span>
+            </router-link>
             <i>•</i>
             <span class="d post-author">
-                            叶落山城
+                            {{ item.user.name }}
                           </span>
             <span class="d update-time"><i>•</i>
                             最后回答
-                          在 8月29日 16:14
+                          在 {{ item.lastReplyActivated }}
                           </span>
           </div>
         </div>
         <div class="l3">
-          <span class="reply-count"><a href="">4784</a> </span>
+          <span class="reply-count"><a href="">{{ item.replyCount}}</a> </span>
         </div>
       </div>
+
       <div class="list-one block-question-two clearfix">
         <div class="l1 up-count">
           <a href="#">
@@ -99,19 +102,27 @@
     </div>
     <div class="ft">
       <el-pagination
+        :page-size="2"
         layout="prev, pager, next"
-        :total="1000">
+        @current-change="changePage"
+        :total="pageTotal">
       </el-pagination>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from '../utils/fetch.js';
   export default {
     data() {
       return {
-        activeIndex2:'1'
+        activeIndex2:'1',
+        post_list:[],//帖子数据列表
+        pageTotal:1,//总页数
       }
+    },
+    mounted() {
+        this.getPostList(1);
     },
     methods: {
       handleCommand(command) {
@@ -119,6 +130,28 @@
       },
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+      },
+      /**
+       * 点击分页
+       */
+      changePage(val){
+          this.getPostList(val);
+      },
+      /**
+       * 帖子列表
+       * @param page
+       */
+      getPostList(page){
+        axios({
+          method:'get',
+          url:'https://demo.g9zz.com/post',
+          params:{
+              page:page,
+          }
+        }).then((res) => {
+            this.post_list = res.data.data;
+            this.pageTotal = res.data.pager.entities;
+        })
       }
     }
   }
