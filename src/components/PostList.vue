@@ -2,9 +2,8 @@
   <div class="card block-list block-feed-list">
     <div class="head">
       <el-menu :default-active="activeIndex2" class="el-menu-demo"  mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-menu-item index="2"><a href="#" >哎哟</a></el-menu-item>
-        <el-menu-item index="3"><a href="#" >订单管理</a></el-menu-item>
+        <el-menu-item index="0"><a href="#" >全部</a></el-menu-item>
+        <el-menu-item v-for="item in popNode" :index="item.hid">{{item.name}}</el-menu-item>
       </el-menu>
     </div>
     <div class="content">
@@ -102,7 +101,7 @@
     </div>
     <div class="ft">
       <el-pagination
-        :page-size="2"
+        :page-size="4"
         layout="prev, pager, next"
         @current-change="changePage"
         :total="pageTotal">
@@ -116,19 +115,24 @@
   export default {
     data() {
       return {
-        activeIndex2:'1',
+        activeIndex2:'0',
         post_list:[],//帖子数据列表
-        pageTotal:1,//总页数
+        nodeHid:'',
+        pageTotal:0,//总页数
+        popNode:[],//欢迎节点列表
       }
     },
     mounted() {
-        this.getPostList(1);
+      this.getPopNode();
+      this.getPostList(1);
     },
     methods: {
       handleCommand(command) {
         this.$message('click on item ' + command);
       },
       handleSelect(key, keyPath) {
+          this.nodeHid = keyPath;
+          this.getPostList(1);
         console.log(key, keyPath);
       },
       /**
@@ -144,7 +148,7 @@
       getPostList(page){
         axios({
           method:'get',
-          url:'https://demo.g9zz.com/post',
+          url:'/post?node='+this.nodeHid,
           params:{
               page:page,
           }
@@ -152,6 +156,15 @@
             this.post_list = res.data.data;
             this.pageTotal = res.data.pager.entities;
         })
+      },
+      getPopNode() {
+          axios({
+            method:'get',
+            url: '/node/pop/show',
+          }).then((res) => {
+              this.popNode = res.data.data;
+              console.log(res.data);
+          })
       }
     }
   }
