@@ -39,64 +39,7 @@
         </div>
       </div>
 
-      <div class="list-one block-question-two clearfix">
-        <div class="l1 up-count">
-          <a href="#">
-            <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-          </a>
-        </div>
-        <div class="l2">
-          <h3 style="margin-top: 10px">
-            <a href="#">最近重新恢复了数据?</a>
-          </h3>
-          <div class="ct">
 
-                          <span class="d post-node">
-                            默认分类
-                          </span>
-            <i>•</i>
-            <span class="d post-author">
-                            叶落山城
-                          </span>
-            <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-          </div>
-        </div>
-        <div class="l3">
-          <span class="reply-count"><a href="">4784</a> </span>
-        </div>
-      </div>
-      <div class="list-one block-question-two clearfix">
-        <div class="l1 up-count">
-          <a href="#">
-            <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-          </a>
-        </div>
-        <div class="l2">
-          <h3 style="margin-top: 10px">
-            <a href="#">最近重新恢复了数据?</a>
-          </h3>
-          <div class="ct">
-
-                          <span class="d post-node">
-                            默认分类
-                          </span>
-            <i>•</i>
-            <span class="d post-author">
-                            叶落山城
-                          </span>
-            <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-          </div>
-        </div>
-        <div class="l3">
-          <span class="reply-count"><a href="">4784</a> </span>
-        </div>
-      </div>
 
     </div>
     <div class="ft">

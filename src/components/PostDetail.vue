@@ -5,214 +5,71 @@
         <div class="list-one block-question-two clearfix">
           <div class="l1 up-count">
             <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
+              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" :src="author_avatar" alt="作者头像">
             </a>
           </div>
           <div class="l2">
             <h1 style="margin-top: 10px">
-              <a href="#">最近重新恢复了数据?</a>
+              <a href="#">{{post_title}}</a>
             </h1>
             <div class="ct">
             <span class="d post-node">
-              默认分类
+              {{post_node}}
             </span>
               <i>•</i>
               <span class="d post-author">
-                            叶落山城
+                            {{ post_author}}
                           </span>
               <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
+                            创建于
+                           {{ post_created }}
                           </span>
             </div>
           </div>
         </div>
-        <div class="reply-content">
-          <h3>第三次重构过程</h3><ol><li><p>下载laravel</p></li><li><p>下载 <code>ide-helper</code> 插件</p></li><li><p>下载 <code>repositories</code> 插件</p></li><li><p>创建 <code>QueryListener</code> 监听打印sql语句,方便开发</p></li><li><p>创建 <code>BaseRequest</code></p></li><li><p>自定义 校验方式和报错方式</p></li><li><p>自定义几个 异常</p></li><li><p>下载<code>composer require league/fractal</code></p></li><li><p>创建几个trait 类</p></li><li><p>下载 社会化登录组件</p></li><li><p>下载 markdown 解析组件</p></li></ol>
+        <div class="reply-content" v-html="post_content">
+          <!--{{ post_content }}-->
         </div>
         <div class="post-append">
-          <div class="list-one append-list clearfix">
-            附言1
-          </div>
-          <div class="list-one append-list clearfix">
-            附言2
+          <div v-for="item in post_script" v-html="item.content" class="list-one append-list clearfix">
           </div>
         </div>
       </div>
     </div>
     <div class="card block-list2 block-answer-list">
       <div class="reply-list">
-        <div class="list-one block-question-two clearfix">
-          <div class="l1 up-count">
-            <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-            </a>
-          </div>
-          <div class="l2">
-            <div class="ct" style="margin-top: 10px">
+        <div v-if="post_reply_num > 0">
+          <div v-for="item in post_reply_list" class="list-one block-question-two clearfix">
+            <div class="l1 up-count">
+              <a href="#">
+                <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" :src="item.user.avatar" alt="头像">
+              </a>
+            </div>
+            <div class="l2">
+              <div class="ct" style="margin-top: 10px">
             <span class="d post-node">
               默认分类
             </span>
-              <i>•</i>
-              <span class="d post-author">
-                            叶落山城
+                <i>•</i>
+                <span class="d post-author">
+                            {{ item.user.name }}
                           </span>
-              <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
+                <span class="d update-time"><i>•</i>
+                            回答
+                          于 {{ item.created }}
                           </span>
-              <span class="d" style="float: right">1</span>
-            </div>
-            <div class="line"></div>
-            <div class="reply-detail">
-              <h3>第三次重构过程</h3><ol><li><p>下载laravel</p></li><li><p>下载 <code>ide-helper</code> 插件</p></li><li><p>下载 <code>repositories</code> 插件</p></li><li><p>创建 <code>QueryListener</code> 监听打印sql语句,方便开发</p></li><li><p>创建 <code>BaseRequest</code></p></li><li><p>自定义 校验方式和报错方式</p></li><li><p>自定义几个 异常</p></li><li><p>下载<code>composer require league/fractal</code></p></li><li><p>创建几个trait 类</p></li><li><p>下载 社会化登录组件</p></li><li><p>下载 markdown 解析组件</p></li></ol>
+                <span class="d" style="float: right">{{ item.floor }}</span>
+              </div>
+              <div class="line"></div>
+              <div v-html="item.content" class="reply-detail">
+              </div>
 
             </div>
-
           </div>
         </div>
-
-        <div class="list-one block-question-two clearfix">
-          <div class="l1 up-count">
-            <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-            </a>
-          </div>
-          <div class="l2">
-
-            <div class="ct" style="margin-top: 10px">
-            <span class="d post-node">
-              默认分类
-            </span>
-              <i>•</i>
-              <span class="d post-author">
-                            叶落山城
-                          </span>
-              <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-            </div>
-            <div class="reply-detail">
-              <h3>第三次重构过程</h3>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="list-one block-question-two clearfix">
-          <div class="l1 up-count">
-            <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-            </a>
-          </div>
-          <div class="l2">
-
-            <div class="ct" style="margin-top: 10px">
-            <span class="d post-node">
-              默认分类
-            </span>
-              <i>•</i>
-              <span class="d post-author">
-                            叶落山城
-                          </span>
-              <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-            </div>
-            <div class="line"></div>
-            <div class="reply-detail">
-              <h3>第三次重构过程</h3>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="list-one block-question-two clearfix">
-          <div class="l1 up-count">
-            <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-            </a>
-          </div>
-          <div class="l2">
-
-            <div class="ct" style="margin-top: 10px">
-            <span class="d post-node">
-              默认分类
-            </span>
-              <i>•</i>
-              <span class="d post-author">
-                            叶落山城
-                          </span>
-              <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-            </div>
-            <div class="reply-detail">
-              <h3>第三次重构过程</h3><ol><li><p>下载laravel</p></li><li><p>下载 <code>ide-helper</code> 插件</p></li><li><p>下载 <code>repositories</code> 插件</p></li><li><p>创建 <code>QueryListener</code> 监听打印sql语句,方便开发</p></li><li><p>创建 <code>BaseRequest</code></p></li><li><p>自定义 校验方式和报错方式</p></li><li><p>自定义几个 异常</p></li><li><p>下载<code>composer require league/fractal</code></p></li><li><p>创建几个trait 类</p></li><li><p>下载 社会化登录组件</p></li><li><p>下载 markdown 解析组件</p></li></ol>
-
-            </div>
-
-          </div>
-        </div>
-
-        <div class="list-one block-question-two clearfix">
-          <div class="l1 up-count">
-            <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-            </a>
-          </div>
-          <div class="l2">
-
-            <div class="ct" style="margin-top: 10px">
-            <span class="d post-node">
-              默认分类
-            </span>
-              <i>•</i>
-              <span class="d post-author">
-                            叶落山城
-                          </span>
-              <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-            </div>
-            <div class="reply-detail">
-              <h3>第三次重构过程</h3><ol><li><p>下载laravel</p></li><li><p>下载 <code>ide-helper</code> 插件</p></li><li><p>下载 <code>repositories</code> 插件</p></li><li><p>创建 <code>QueryListener</code> 监听打印sql语句,方便开发</p></li><li><p>创建 <code>BaseRequest</code></p></li><li><p>自定义 校验方式和报错方式</p></li><li><p>自定义几个 异常</p></li><li><p>下载<code>composer require league/fractal</code></p></li><li><p>创建几个trait 类</p></li><li><p>下载 社会化登录组件</p></li><li><p>下载 markdown 解析组件</p></li></ol>
-
-            </div>
-
-          </div>
-        </div>
-
-        <div class="list-one block-question-two clearfix">
-          <div class="l1 up-count">
-            <a href="#">
-              <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" src="https://oe9nbfytu.qnssl.com/user/b618677591aa49b3972ece0c7d26b473/thumb" alt="头像">
-            </a>
-          </div>
-          <div class="l2">
-
-            <div class="ct" style="margin-top: 10px">
-            <span class="d post-node">
-              默认分类
-            </span>
-              <i>•</i>
-              <span class="d post-author">
-                            叶落山城
-                          </span>
-              <span class="d update-time"><i>•</i>
-                            最后回答
-                          在 8月29日 16:14
-                          </span>
-            </div>
-            <div class="reply-detail">
-              <h3>第三次重构过程</h3><ol><li><p>下载laravel</p></li><li><p>下载 <code>ide-helper</code> 插件</p></li><li><p>下载 <code>repositories</code> 插件</p></li><li><p>创建 <code>QueryListener</code> 监听打印sql语句,方便开发</p></li><li><p>创建 <code>BaseRequest</code></p></li><li><p>自定义 校验方式和报错方式</p></li><li><p>自定义几个 异常</p></li><li><p>下载<code>composer require league/fractal</code></p></li><li><p>创建几个trait 类</p></li><li><p>下载 社会化登录组件</p></li><li><p>下载 markdown 解析组件</p></li></ol>
-
-            </div>
-
+        <div v-else>
+          <div class="list-one  clearfix" style="text-align: center">
+            <span >评论空空如也~</span>
           </div>
         </div>
 
@@ -237,13 +94,58 @@
 
 <script>
   import Editor from './Editor.vue'
+  import axios from '../utils/fetch.js';
   export default {
       data () {
           return {
+            author_avatar:'',
+            post_title:'',
+            post_node:'',
+            post_author:'',
+            post_created:'',
+            post_content:'',
+            post_script:[],
 
+            post_reply_list:[],
+            post_reply_num:0,
           }
       },
-    components:{Editor}
+    components:{Editor},
+    mounted(){
+      this.getPostDetail();
+      this.getPostReplyList();
+    },
+    methods:{
+
+      /**
+       * 帖子详情
+       */
+      getPostDetail() {
+        axios({
+          method:'get',
+          url:'/post/'+this.$route.params.hid
+        }).then((res) => {
+          let result = res.data.data;
+          this.author_avatar = result.user.avatar;
+          this.post_title = result.title;
+          this.post_node = result.node.displayName;
+          this.post_author = result.user.name;
+          this.post_created = result.createdAt;
+          this.post_content = result.content;
+          this.post_script = result.postscript;
+        })
+      },
+      getPostReplyList() {
+          axios({
+            method: 'get',
+            url:'/post/' + this.$route.params.hid + '/reply'
+          }).then((res) => {
+//              let result = res.data.data;
+              this.post_reply_list = res.data.data;
+              this.post_reply_num = res.data.pager.entities;
+          })
+      }
+    }
   };
 </script>
 

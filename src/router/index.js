@@ -15,7 +15,7 @@ const routes = [
     name: '首页',
     component: Index,
   },{
-    path: '/post_detail/:hid',
+    path: '/post/:hid',
     name: '详情',
     component: Show
   },{
