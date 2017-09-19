@@ -1,10 +1,51 @@
 <template>
   <div class="sidebar">
-    <div class="login-auth">
-      <router-link to="/post_create">
-        <el-button :plain="true" type="success" icon="edit">创建新主题</el-button>
-      </router-link>
+
+    <div class="block-user-view-info  block-right">
+      <h2>叶落山城秋</h2>
+      <div class="content clearfix">
+        <div class="l1">
+          <div class="user-avatar">
+            <img src="//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg" class="avatar">
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="block-user-view-info  block-right">
+      <h2>登录</h2>
+      <div class="block " style="margin-top: 20px">
+        <router-link to="#" >
+          <el-button  type="success" class="login email_login" >邮箱登录</el-button>
+        </router-link>
+      </div>
+      <div class="block ">
+        <router-link to="#" >
+          <el-button  type="success" class="login github_login" >Github登录</el-button>
+        </router-link>
+      </div>
+      <div class="block ">
+          <el-button  type="success" class="login qq_login" >QQ登录</el-button>
+      </div>
+      <div class="block ">
+        <router-link to="#" >
+          <el-button  type="success" class="login weibo_login" >微博登录</el-button>
+        </router-link>
+      </div>
+      <div class="block " style="margin-bottom: 20px">
+        <router-link to="#" >
+          <el-button  type="success" class="login weixin_login" >微信登录</el-button>
+        </router-link>
+      </div>
+
+    </div>
+
+    <!--<div class="login-auth">-->
+      <!--<router-link to="/post_create">-->
+        <!--<el-button :plain="true" type="success" icon="edit">创建新主题</el-button>-->
+      <!--</router-link>-->
+    <!--</div>-->
+
     <div class="search">
       <el-input
         placeholder="搜索.."
@@ -106,8 +147,20 @@
     border-radius: 4px;
     box-shadow: 0 6px 11px #dad3d2;
   }
+
+  .block-siteuser-add{
+    margin-top: 15px;
+  }
+  .block-user-view-info{
+    background-color: #fff;
+    margin-top: 15px;
+  }
+  .block-user-view-info .block {
+    text-align: center;
+  }
   .login-auth {
     /*min-height: 100px;*/
+    margin-top: 15px;
     background-color: #fff;
 
   }
@@ -154,11 +207,45 @@
     letter-spacing: -1px;
     color: #b59797;
     border-bottom: 1px solid #ddd;
+    background-color: #eef5f1;
   }
   .f-g-f span{
     letter-spacing: 0;
     line-height:8px;
     text-align:center;
     display:block;
+  }
+  /*.block-siteuser-add .lbtn  {*/
+    /*width: 100%;*/
+    /*padding: 8px 0;*/
+  /*}*/
+  .login{
+    margin: 5px;
+    width: 50%;
+  }
+  .github_login{
+    border-color: #37b5f9;
+    color: #37b5f9;
+    background: url('../assets/images/github_login.png') no-repeat 20px 9px #fff;
+  }
+  .email_login{
+    border-color: #37b5f9;
+    color: #37b5f9;
+    background: url('../assets/images/email_login.jpg') no-repeat 20px 9px #fff;
+  }
+  .qq_login{
+    border-color: #37b5f9;
+    color: #37b5f9;
+    background: url('../assets/images/qq_login_03.jpg') no-repeat 20px 8px #fff;
+  }
+  .weibo_login{
+    border-color: #f26d7e;
+    color: #f26d7e;
+    background: url('../assets/images/weibo_login_10.jpg') no-repeat 20px 8px #fff;
+  }
+  .weixin_login{
+    border-color: #13ce66;
+    color: #13ce66;
+    background: url('../assets/images/weixin_login_15.jpg') no-repeat 20px 8px #fff;
   }
 </style>

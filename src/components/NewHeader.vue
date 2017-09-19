@@ -11,7 +11,7 @@
         <nav class="navbar">
           <ul class="nav">
             <li class="pc-nav-home">
-              <a href="#" class="home-current">首页</a>
+              <a href="#">首页</a>
             </li>
             <li class="pc-nav-food">
               <a href="#">招牌美食</a>
