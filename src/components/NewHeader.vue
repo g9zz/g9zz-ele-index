@@ -11,23 +11,23 @@
         <nav class="navbar">
           <ul class="nav">
             <li class="pc-nav-home">
-              <a href="#" class="home-current">首页</a>
+              <a href="#" >叶落</a>
             </li>
             <li class="pc-nav-food">
-              <a href="#">招牌美食</a>
+              <a href="#">Github</a>
             </li>
             <li class="pc-nav-char">
-              <a href="#">特色活动</a>
+              <a href="#">微博</a>
             </li>
-            <li class="pc-nav-join">
-              <a href="#">招商加盟</a>
-            </li>
-            <li class="pc-nav-ente">
-              <a href="p#">企业概况</a>
-            </li>
-            <li class="pc-nav-menn">
-              <a href="#">联系我们</a>
-            </li>
+            <!--<li class="pc-nav-join">-->
+              <!--<a href="#">招商加盟</a>-->
+            <!--</li>-->
+            <!--<li class="pc-nav-ente">-->
+              <!--<a href="p#">企业概况</a>-->
+            <!--</li>-->
+            <!--<li class="pc-nav-menn">-->
+              <!--<a href="#">联系我们</a>-->
+            <!--</li>-->
           </ul>
         </nav>
       </div>
