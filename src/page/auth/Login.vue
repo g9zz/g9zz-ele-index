@@ -54,7 +54,10 @@
     /*overflow:hidden;*/
     /*background-repeat:no-repeat;*/
   /*}*/
-
+  .col-md-4 {
+    max-width: 420px;
+    min-width: 300px;
+  }
   .container{
     min-width: 70%;
     margin-top: 30px;

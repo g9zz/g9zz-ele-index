@@ -112,6 +112,9 @@
   .block-user-view-info {
     background-color: #fff;
     margin-bottom: 15px;
+    border: 0 solid #d1dbe5;
+    border-radius: 4px;
+    box-shadow: 0 6px 11px #dad3d2;
   }
 
   .block-user-view-info .block {

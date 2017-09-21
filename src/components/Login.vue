@@ -4,7 +4,7 @@
     <h3 class="note">所有授权登录都必须绑定邮箱!本站以邮箱账号为主</h3>
     <div class="block myLogin" style="margin-top: 20px">
       <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="100px" class="login-form">
-        <el-form-item label="账号" prop="name">
+        <el-form-item label="账号" prop="email">
           <el-input v-model="loginForm.email" size="large" placeholder="请输入登录邮箱"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
@@ -13,8 +13,8 @@
         <!--<el-form-item label="邀请码" prop="invite_code">-->
           <!--<el-input v-model="loginForm.invite_code" size="large" type="password" placeholder="请输入邀请码"></el-input>-->
         <!--</el-form-item>-->
-        <el-form-item label="验证码" style="width: 100%" prop="verify_code">
-          <el-input style="width: 55%" v-model="loginForm.invite_code" size="large" type="password" placeholder="请输入验证码">
+        <el-form-item label="验证码" style="width: 100%" prop="captcha">
+          <el-input style="width: 55%" v-model="loginForm.captcha" size="large"  placeholder="请输入验证码">
           </el-input>
           <img :src="captchaSrc" style="width: 40%;height: 42px;border-radius: 4px" @click="getCaptcha()" alt="图形验证码">
         </el-form-item>
@@ -59,18 +59,26 @@
 
 <script>
   import axios from '../utils/fetch.js';
+  import qs from 'qs'
   export default {
     data() {
       return {
         loginForm: {
           email: '',
           password: '',
+          captcha: '',
         },
         rules: {
-          name: [
+          email: [
             {required: true, message: '请输入邮箱地址', trigger: 'blur'},
-            {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
           ],
+          password: [
+            { required: true, message: '请填写密码', trigger: 'blur' },
+            { type: 'string', min: 6, message: '密码长度不能小于6位', trigger: 'blur' }
+          ],
+          captcha: [
+            { required: true, message: '请填写验证码', trigger: 'blur' },
+          ]
 
         },
         captchaSrc:'', //验证码地址
@@ -82,20 +90,46 @@
       this.initCaptcha();
     },
     methods: {
+      /**
+       * 初始化验证码
+       */
       initCaptcha() {
           this.captchaSrc = process.env.BASE_API + '/captcha?uuid=' + this.text;
       },
 
+      /**
+       * 点击获取新的验证码
+       */
       getCaptcha(){
         this.makeId();
         this.captchaSrc = process.env.BASE_API + '/captcha?uuid=' + this.text;
       },
-
+      person(email) {
+        this.email = email
+      },
       submitForm(formName) {
+          var that = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
-          } else {
+            var email = that.loginForm.email;
+            var password = that.loginForm.password;
+            var captcha = that.loginForm.captcha;
+          console.log(email)
+            axios({
+              method: 'POST',
+              url: '/login' ,
+              headers: {
+                'x-auth-uuid': that.text
+              },
+              data: {
+                email: email,
+                password: password,
+                captcha: captcha
+              }
+          }).then((res) => {
+              console.log(res.data)
+            })
+        } else {
             console.log('error submit!!');
             return false;
           }
@@ -131,12 +165,16 @@
     /*margin-bottom: 20px;*/
     border-bottom: 1px dashed lightblue;
     padding-right: 20px;
+
   }
 
 
   .block-user-view-info {
     background-color: #fff;
     margin-bottom: 15px;
+    border: 0 solid #d1dbe5;
+    border-radius: 4px;
+    box-shadow: 0 6px 11px #dad3d2;
   }
 
   .block-user-view-info .block {

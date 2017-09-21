@@ -3,10 +3,7 @@
  */
 import axios from 'axios';
 import { Message } from 'element-ui';
-// import store from '../store';
-// import router from '../router';
 
-// export const Base_Api = procss.env.BASE_API;
 // 创建axios实例
 const service = axios.create({
   baseURL: process.env.BASE_API, // api的base_url
@@ -16,17 +13,12 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(config => {
-  // Do something before request is sent
-  // if (store.getters.token) {
+
   config.params['limit'] = 4;
   config.headers['x-auth-token'] = '22222222'; // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
-  // }
-  // var env = process.env.NODE_ENV === 'production' ? 1 : 2;
 
-  // console.log(process.env.NODE_ENV,config.baseURL);
   return config;
 }, error => {
-  // Do something with request error
   console.log(error); // for debug
   Promise.reject(error);
 })
