@@ -59,7 +59,10 @@
 
 <script>
   import axios from '../utils/fetch.js';
-  import qs from 'qs'
+  import cookie from '../utils/cookie.js';
+  import { Message } from 'element-ui';
+  import { Loading } from 'element-ui';
+
   export default {
     data() {
       return {
@@ -90,31 +93,25 @@
       this.initCaptcha();
     },
     methods: {
-      /**
-       * 初始化验证码
-       */
+      /** 初始化验证码 */
       initCaptcha() {
           this.captchaSrc = process.env.BASE_API + '/captcha?uuid=' + this.text;
       },
 
-      /**
-       * 点击获取新的验证码
-       */
+      /** 点击获取新的验证码 */
       getCaptcha(){
         this.makeId();
         this.captchaSrc = process.env.BASE_API + '/captcha?uuid=' + this.text;
       },
-      person(email) {
-        this.email = email
-      },
+
       submitForm(formName) {
-          var that = this;
+        var that = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            Loading.service({ fullscreen: true });
             var email = that.loginForm.email;
             var password = that.loginForm.password;
             var captcha = that.loginForm.captcha;
-          console.log(email)
             axios({
               method: 'POST',
               url: '/login' ,
@@ -127,7 +124,19 @@
                 captcha: captcha
               }
           }).then((res) => {
-              console.log(res.data)
+//                console.log(res.data,'234234234')
+              if (res.data.code == 200) {
+                cookie.setCookie('token',res.data.data.token);
+                cookie.setCookie('hid',res.data.data.hid);
+                Message({
+                  message: '登录成功',
+                  type: 'success',
+                  duration: 5 * 1000
+                });
+                this.$router.push(this.$route.query.redirect || '/')
+              }
+              let loadingInstance = Loading.service({ fullscreen: true });
+              loadingInstance.close();
             })
         } else {
             console.log('error submit!!');

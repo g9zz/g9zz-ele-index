@@ -3,6 +3,7 @@
  */
 import axios from 'axios';
 import { Message } from 'element-ui';
+import cookie from '../utils/cookie.js';
 
 // 创建axios实例
 const service = axios.create({
@@ -14,8 +15,13 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
 
-  config.params['limit'] = 4;
-  config.headers['x-auth-token'] = '22222222'; // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+  if (config.method == 'get') {
+    config.params['limit'] = 4;
+  }
+
+  if (cookie.getCookie('token') ) {
+    config.headers['x-auth-token'] = cookie.getCookie('token'); // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+  }
 
   return config;
 }, error => {
@@ -34,9 +40,8 @@ service.interceptors.response.use(function (response) {
           type: 'error',
           duration: 5 * 1000
         });
-    } else {
-      return response;
     }
+    return response;
 },
   // response => {
   //   const code = this.data.code;
