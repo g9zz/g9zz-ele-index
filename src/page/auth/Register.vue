@@ -7,16 +7,15 @@
           <!--<HeaderNode></HeaderNode>-->
           <div class="container">
             <div class="row">
-              <div class="col-md-9">
-                <!--<PostDetail></PostDetail>-->
-                <!--<PostList></PostList>-->
-                <MyDetail></MyDetail>
-              </div>
+              <div class="col-md-8">
+                怎么说呢...  这个是注册...
 
-              <div class="col-md-3">
-                <Sidebar></Sidebar>
+                很牛逼的注册!
               </div>
+              <div class="col-md-4">
+                <MyRegister></MyRegister>
 
+              </div>
             </div>
           </div>
 
@@ -35,12 +34,14 @@
   import PostDetail from '../../components/PostDetail.vue'
   import HeaderNode from '../../components/HeaderNode.vue'
   import MyDetail from '../../components/MyDetail.vue'
+  import MyLogin from '../../components/Login.vue'
+  import MyRegister from '../../components/Register.vue'
   export default {
     data () {
       return {
       }
     },
-    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode,MyDetail},
+    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode,MyDetail,MyLogin,MyRegister},
     methods: {
 
     }
@@ -49,6 +50,13 @@
 
 <style scoped>
   @import "../../assets/css/test1.css";
+
+  /*#my-all {*/
+  /*!*background-image: url("http://www.jq22.com/demo/jquery-login-20150514/img/1.jpg");*!*/
+  /*background-size:100% 100%;*/
+  /*overflow:hidden;*/
+  /*background-repeat:no-repeat;*/
+  /*}*/
 
   .container{
     min-width: 70%;

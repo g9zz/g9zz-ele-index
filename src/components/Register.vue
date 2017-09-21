@@ -1,6 +1,6 @@
 <template>
   <div class="block-user-view-info  block-right">
-    <h2>登录</h2>
+    <h2>注册</h2>
     <h3 class="note">所有授权登录都必须绑定邮箱!本站以邮箱账号为主</h3>
     <div class="block myLogin" style="margin-top: 20px">
       <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="100px" class="login-form">
@@ -10,47 +10,22 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="loginForm.password" size="large" type="password" placeholder="请输入密码"></el-input>
         </el-form-item>
-        <!--<el-form-item label="邀请码" prop="invite_code">-->
-          <!--<el-input v-model="loginForm.invite_code" size="large" type="password" placeholder="请输入邀请码"></el-input>-->
-        <!--</el-form-item>-->
+        <el-form-item label="重复密码" prop="rePassword">
+          <el-input v-model="loginForm.rePassword" size="large" type="password" placeholder="请再输入密码"></el-input>
+        </el-form-item>
+        <el-form-item label="邀请码" prop="invite_code">
+          <el-input v-model="loginForm.invite_code" size="large" type="password" placeholder="请输入邀请码"></el-input>
+        </el-form-item>
         <el-form-item label="验证码" style="width: 100%" prop="verify_code">
           <el-input style="width: 55%" v-model="loginForm.invite_code" size="large" type="password" placeholder="请输入验证码">
           </el-input>
           <img :src="captchaSrc" style="width: 40%;height: 42px;border-radius: 4px" @click="getCaptcha()" alt="图形验证码">
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
+          <el-button type="primary" @click="submitForm('loginForm')">注册</el-button>
           <!--<el-button @click="resetForm('loginForm')">重置</el-button>-->
         </el-form-item>
       </el-form>
-    </div>
-
-
-    <div class="authLogin">
-      <div class="block " >
-        <router-link to="#">
-          <el-button type="success" class="login email_login">邮箱登录</el-button>
-        </router-link>
-      </div>
-      <div class="block ">
-        <router-link to="#">
-          <el-button type="success" class="login github_login">Github登录</el-button>
-        </router-link>
-      </div>
-      <div class="block ">
-        <el-button type="success" class="login qq_login">QQ登录</el-button>
-      </div>
-      <div class="block ">
-        <router-link to="#">
-          <el-button type="success" class="login weibo_login">微博登录</el-button>
-        </router-link>
-      </div>
-      <div class="block " style="margin-bottom: 20px">
-        <router-link to="#">
-          <el-button type="success" class="login weixin_login">微信登录</el-button>
-        </router-link>
-      </div>
-
     </div>
 
   </div>
@@ -83,7 +58,7 @@
     },
     methods: {
       initCaptcha() {
-          this.captchaSrc = process.env.BASE_API + '/captcha?uuid=' + this.text;
+        this.captchaSrc = process.env.BASE_API + '/captcha?uuid=' + this.text;
       },
 
       getCaptcha(){
@@ -148,35 +123,6 @@
     width: 50%;
   }
 
-  .github_login {
-    border-color: black;
-    color: black;
-    background: url('../assets/images/github_login.png') no-repeat 20px 9px #fff;
-  }
-
-  .email_login {
-    border-color: #acacac;
-    color: #acacac;
-    background: url('../assets/images/email_login.jpg') no-repeat 20px 9px #fff;
-  }
-
-  .qq_login {
-    border-color: #37b5f9;
-    color: #37b5f9;
-    background: url('../assets/images/qq_login_03.jpg') no-repeat 20px 8px #fff;
-  }
-
-  .weibo_login {
-    border-color: #f26d7e;
-    color: #f26d7e;
-    background: url('../assets/images/weibo_login_10.jpg') no-repeat 20px 8px #fff;
-  }
-
-  .weixin_login {
-    border-color: #13ce66;
-    color: #13ce66;
-    background: url('../assets/images/weixin_login_15.jpg') no-repeat 20px 8px #fff;
-  }
 
   .authLogin {
     background-color: #ebeef1;

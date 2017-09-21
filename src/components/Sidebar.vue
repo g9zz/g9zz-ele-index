@@ -1,6 +1,14 @@
 <template>
   <div class="sidebar">
 
+    <div class="login-auth block-user-view-info  block-right">
+      <div class="block " style="margin-bottom: 20p;">
+        <router-link to="/post_create">
+          <el-button :plain="true" type="success" icon="edit">创建新主题</el-button>
+        </router-link>
+      </div>
+    </div>
+
     <div class="block-user-view-info  block-right">
       <h2>叶落山城秋</h2>
       <div class="content clearfix">
@@ -9,6 +17,12 @@
             <img src="//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg" class="avatar">
           </div>
         </div>
+        <h2 style="background-color: #fff"></h2>
+        <h2 style="background-color: #fff">
+          <router-link to="/my">
+            个人中心
+          </router-link>
+        </h2>
       </div>
     </div>
 
@@ -40,11 +54,7 @@
 
     </div>
 
-    <!--<div class="login-auth">-->
-      <!--<router-link to="/post_create">-->
-        <!--<el-button :plain="true" type="success" icon="edit">创建新主题</el-button>-->
-      <!--</router-link>-->
-    <!--</div>-->
+
 
     <div class="search">
       <el-input
@@ -55,17 +65,18 @@
         :on-icon-click="handleIconClick">
       </el-input>
     </div>
-    <div class="ad">
-      <div class="f-g-f"><span>ad</span></div>
+    <div class="ad block-user-view-info  block-right">
+      <h2>ad</h2>
+      <!--<div class="f-g-f"><span>ad</span></div>-->
       <div class="ad-img">
         <a href="#" ><img class="ad-1" src="../assets/ad-test.jpg" alt=""></a>
         <a href="#" ><img class="ad-1" src="../assets/ad-test.jpg" alt=""></a>
       </div>
 
     </div>
-    <div class="hot">
-      <div class="f-g-f"><span>hot topics</span></div>
-
+    <div class="hot block-user-view-info  block-right">
+      <!--<div class="f-g-f"><span>hot topics</span></div>-->
+        <h2>hot topics</h2>
       <el-table
         :data="hotData"
         class="hotTable"
@@ -80,8 +91,9 @@
         </el-table-column>
       </el-table>
     </div>
-    <div class="note">
-      <div class="f-g-f"><span>note</span></div>
+    <div class="note block-user-view-info  block-right">
+      <h2>note</h2>
+      <!--<div class="f-g-f"><span>note</span></div>-->
       <div class="n-note">
         <el-collapse v-model="activeNames">
           <el-collapse-item title="一致性 Consistency" name="1">
@@ -149,18 +161,16 @@
   }
 
   .block-siteuser-add{
-    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .block-user-view-info{
     background-color: #fff;
-    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .block-user-view-info .block {
     text-align: center;
   }
   .login-auth {
-    /*min-height: 100px;*/
-    margin-top: 15px;
     background-color: #fff;
 
   }
@@ -224,13 +234,13 @@
     width: 50%;
   }
   .github_login{
-    border-color: #37b5f9;
-    color: #37b5f9;
+    border-color: black;
+    color: black;
     background: url('../assets/images/github_login.png') no-repeat 20px 9px #fff;
   }
   .email_login{
-    border-color: #37b5f9;
-    color: #37b5f9;
+    border-color: #acacac;
+    color: #acacac;
     background: url('../assets/images/email_login.jpg') no-repeat 20px 9px #fff;
   }
   .qq_login{

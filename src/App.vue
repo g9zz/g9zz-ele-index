@@ -16,4 +16,7 @@ export default {
     margin:0;
     background-color: rgb(255, 255, 255);
   }
+  #app {
+    height: 100%;
+  }
 </style>

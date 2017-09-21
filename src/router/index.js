@@ -7,7 +7,8 @@ import Index from '../page/post/Index.vue'
 import Show from '../page/post/Show.vue'
 import Create from '../page/post/Create.vue'
 import My from '../page/my/index.vue'
-
+import Login from '../page/auth/Login.vue'
+import Register from '../page/auth/Register.vue'
 
 const routes = [
   {
@@ -26,6 +27,14 @@ const routes = [
     path: '/my',
     name: '个人中心',
     component: My
+  },{
+    path: '/login',
+    name: '登录',
+    component: Login
+  },{
+    path: '/register',
+    name: '注册',
+    component: Register
   }
 ];
 const router = new Router({

@@ -37,7 +37,7 @@
   .sidebar {
     min-height:300px;
     /*background-color: #fff;*/
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     /*margin-left: 20px;*/
     /*border: 1px solid #d1dbe5;*/
     /*border-radius: 4px;*/

@@ -1307,7 +1307,8 @@ a.weak2:hover {
   padding: 15px 0;
   margin: 0;
   text-align: center;
-  border-bottom: 1px solid #EFF2F7
+  border-bottom: 1px solid #EFF2F7;
+  background-color: rgba(241, 250, 255, 0.81);
 }
 
 .block-normal .content, .block-right .content {
@@ -4476,7 +4477,7 @@ ul.top-nav-ul li.dot a.main:hover {
   padding: 5px 15px
 }
 
-#react-dom, #my-all, body, html {
+#my-all, body, html {
   height: 100%
 }
 
@@ -6005,7 +6006,8 @@ p.help {
 
   .r-content {
     padding-top: 0;
-    padding-bottom: 70px
+    padding-bottom: 70px;
+    margin-top: 83px;
   }
 
   .block-empty-header .col-md-12 {
@@ -6101,7 +6103,7 @@ p.help {
   }
 
   .block-user-view-info {
-    padding: 0 15px 60px 15px
+    /*padding: 0 15px 60px 15px*/
   }
 
   .block-user-view-info .row .row {

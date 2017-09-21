@@ -7,17 +7,14 @@
           <!--<HeaderNode></HeaderNode>-->
           <div class="container">
             <div class="row">
-              <div class="col-md-9">
-                <!--<PostDetail></PostDetail>-->
-                <!--<PostList></PostList>-->
-                <MyDetail></MyDetail>
+              <div class="col-md-8">
+                叶落山城
               </div>
+              <div class="col-md-4">
+                <MyLogin></MyLogin>
 
-              <div class="col-md-3">
-                <Sidebar></Sidebar>
               </div>
-
-            </div>
+              </div>
           </div>
 
         </div>
@@ -35,12 +32,13 @@
   import PostDetail from '../../components/PostDetail.vue'
   import HeaderNode from '../../components/HeaderNode.vue'
   import MyDetail from '../../components/MyDetail.vue'
+  import MyLogin from '../../components/Login.vue'
   export default {
     data () {
       return {
       }
     },
-    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode,MyDetail},
+    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode,MyDetail,MyLogin},
     methods: {
 
     }
@@ -49,6 +47,13 @@
 
 <style scoped>
   @import "../../assets/css/test1.css";
+
+  /*#my-all {*/
+    /*!*background-image: url("http://www.jq22.com/demo/jquery-login-20150514/img/1.jpg");*!*/
+    /*background-size:100% 100%;*/
+    /*overflow:hidden;*/
+    /*background-repeat:no-repeat;*/
+  /*}*/
 
   .container{
     min-width: 70%;
