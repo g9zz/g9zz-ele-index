@@ -10,7 +10,7 @@ import My from '../page/my/index.vue'
 import Login from '../page/auth/Login.vue'
 import Register from '../page/auth/Register.vue'
 import myCookie from '../utils/cookie.js'
-
+import AuthLogin from '../page/auth/AuthLogin.vue'
 
 const routes = [
   { path: '/', name: '首页', component: Index,},
@@ -18,7 +18,8 @@ const routes = [
   { path: '/post_create', name: '创建', meta: { auth:true }, component: Create},
   { path: '/my', name: '个人中心', meta: { auth:true }, component: My},
   { path: '/login', name: '登录', component: Login },
-  { path: '/register', name: '注册', component: Register }
+  { path: '/register', name: '注册', component: Register },
+  { path: '/authLogin', name: '注册', component: AuthLogin }
 ];
 const router = new Router({
   mode: 'history',
@@ -26,20 +27,25 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  // Util.title(to.meta.title);
-
+  let token =  myCookie.getCookie('token')
   if (to.matched.some(r => r.meta.auth)) {
-    let token =  myCookie.getCookie('token')
     if (token) {
       next();
     } else {
-      next({
-        path: '/login',
-        query: {redirect: to.fullPath}
-      })
+      next();
+
+      // next({
+      //   path: '/login',
+      //   query: {redirect: to.fullPath}
+      // })
     }
   } else {
-    next();
+    // if (token) {
+    //   if (to.path == '/login') {
+    //     router.go(-1);
+    //   }
+    // }
+      next();
   }
 });
 

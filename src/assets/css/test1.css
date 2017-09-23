@@ -4661,9 +4661,9 @@ ul.top-nav-ul li.dot a.main:hover {
   margin-right: 15px
 }
 
-.setting_show_one button {
-  visibility: hidden
-}
+/*.setting_show_one button {*/
+  /*visibility: hidden*/
+/*}*/
 
 .setting_show_one:hover button {
   visibility: visible

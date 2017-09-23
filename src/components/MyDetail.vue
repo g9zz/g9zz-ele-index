@@ -7,7 +7,7 @@
             <dt>头像</dt>
             <dd class="user-avatar">
               <img
-                src="//cdn.static.jianda.com/upload/avatar/27/5d/275dae1680450c693395a48ec842409fb443d6f73023db9cb5417f64f5f51c6a.jpg"
+                :src="my_avatar"
                 class="avatar">
             </dd>
           </dl>
@@ -15,39 +15,30 @@
             <dt>名字</dt>
             <dd>
               <div class="setting_show_one">
-                <span class="c">叶落山城</span>
+                <span class="c">{{ my_name }}</span>
               </div>
             </dd>
           </dl>
           <dl class="clearfix">
-            <dt>名字</dt>
+            <dt>邮箱</dt>
             <dd>
               <div class="setting_show_one">
-                <span class="c">叶落山城</span>
+                <span class="c">{{ my_email }}</span>
+                <el-button type="info" @click="verifyEmail()">验证邮箱</el-button>
               </div>
             </dd>
           </dl>
           <dl class="clearfix">
-            <dt>名字</dt>
+            <dt>关联账号</dt>
             <dd>
               <div class="setting_show_one">
-                <span class="c">叶落山城</span>
-              </div>
-            </dd>
-          </dl>
-          <dl class="clearfix">
-            <dt>名字</dt>
-            <dd>
-              <div class="setting_show_one">
-                <span class="c">叶落山城</span>
-              </div>
-            </dd>
-          </dl>
-          <dl class="clearfix">
-            <dt>名字</dt>
-            <dd>
-              <div class="setting_show_one">
-                <span class="c">叶落山城</span>
+                <img src="../assets/images/github.png" v-show="githubShow" class="c" alt="github">
+                <img src="../assets/images/qq.png" v-show="qqShow" class="c" alt="qq">
+                <img src="../assets/images/weibo.png" v-show="weiboShow" class="c" alt="weibo">
+                <img src="../assets/images/weixin.png" v-show="weixinShow" class="c" alt="weixin">
+                <img src="../assets/images/xcx.png" v-show="xcxShow" class="c" alt="miniprograms">
+                <img src="../assets/images/google.png" v-show="googleShow" class="c" alt="google">
+                <!--<span class="c">叶落山城</span>-->
               </div>
             </dd>
           </dl>
@@ -62,7 +53,7 @@
             </div>
             <div class="content">
               <div class="list-one userfeed-one">
-                  <p class="feed-type">
+                <p class="feed-type">
                   提出了问题
                   <span class="feed-time">8月29日 16:10</span>
                 </p>
@@ -80,7 +71,7 @@
                     </div>
                   </div>
                 </div>
-            </div>
+              </div>
               <div class="list-one userfeed-one">
                 <p class="feed-type">
                   提出了问题
@@ -111,8 +102,7 @@
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-      <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+
     </el-tabs>
 
 
@@ -121,20 +111,91 @@
 </template>
 
 <script>
+  import axios from '../utils/fetch.js'
+  import cookie from '../utils/cookie.js'
+  import { Message } from 'element-ui';
+
   export default {
     data () {
       return {
         activeName: 'first',
+        my_name: '',
+        my_email: '',
+        my_avatar: '',
+        githubShow: false,
+        qqShow: false,
+        weiboShow: false,
+        weixinShow: false,
+        googleShow: false,
+        xcxShow: false
       }
+    },
+    mounted() {
+      this.getMyDetail();
     },
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
-      }
+      },
+
+      getNoticeDetail(){
+          
+      },
+
+
+      verifyEmail() {
+          axios({
+            method:'get',
+            url:'/user/verify'
+          }).then((res) => {
+            Message({
+              message: '已成功发送,请检查邮箱邮件',
+              type: 'success',
+              duration: 5 * 1000
+            });
+          })
+      },
+
+      /** 获取用户详情 */
+      getMyDetail() {
+        var hid = cookie.getCookie('hid')
+        axios({
+          method: 'get',
+          url: '/user/' + hid,
+        }).then((res) => {
+          this.my_name = res.data.data.name;
+          this.my_email = res.data.data.email;
+          this.my_avatar = res.data.data.avatar;
+          if (res.data.data.xcx) {
+            this.xcxShow = true;
+          }
+          if (res.data.data.github) {
+            this.githubShow = true;
+          }
+          if (res.data.data.google) {
+            this.googleShow = true;
+          }
+          if (res.data.data.weixin) {
+            this.weixinShow = true;
+          }
+          if (res.data.data.weibo) {
+            this.weiboShow = true;
+          }
+          if (res.data.data.qq) {
+            this.qqShow = true;
+          }
+
+        })
+      },
+
+
     }
   }
 </script>
 
-<style>
-
+<style scoped>
+  .setting_show_one > img {
+    width: 30px;
+    height: 30px;
+  }
 </style>
