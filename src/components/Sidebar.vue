@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="block-user-view-info  block-right">
+    <div :style="infoStyle" class="block-user-view-info  block-right">
       <h2>叶落山城秋</h2>
       <div class="content clearfix">
         <div class="l1">
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="block-user-view-info  block-right">
+    <div :style="loginStyle" class="block-user-view-info  block-right">
       <h2>登录</h2>
       <div class="block " style="margin-top: 20px">
         <router-link to="#" >
@@ -39,17 +39,17 @@
         </router-link>
       </div>
       <div class="block ">
-          <el-button  type="success" class="login qq_login" >QQ登录</el-button>
+          <el-button :disabled="true" type="success" class="login qq_login" >QQ登录</el-button>
       </div>
       <div class="block ">
-        <router-link to="#" >
-          <el-button  type="success" class="login weibo_login" >微博登录</el-button>
-        </router-link>
+        <!--<router-link to="/" >-->
+          <el-button :disabled="true" type="success" class="login weibo_login" >微博登录</el-button>
+        <!--</router-link>-->
       </div>
       <div class="block " style="margin-bottom: 20px">
-        <router-link to="#" >
-          <el-button  type="success" class="login weixin_login" >微信登录</el-button>
-        </router-link>
+        <!--<router-link to="/" >-->
+          <el-button :disabled="true" type="success" class="login weixin_login" >微信登录</el-button>
+        <!--</router-link>-->
       </div>
 
     </div>
@@ -121,6 +121,7 @@
 </template>
 
 <script>
+  import cookie from '../utils/fetch.js'
   export default {
     data () {
       return {
@@ -134,14 +135,23 @@
       }, {
           hotTitle: 'hotTitle',
       }],
-        activeNames:['1']
+        activeNames:['1'],
+        loginStyle: 'display:block',
+        infoStyle: 'display:none',
       }
+    },
+    mounted() {
+
     },
     methods: {
       handleIconClick () {
           console.log('帖子搜索',this.postSearch);
       },
-
+      initStyle() {
+        if (cookie.getCookie('token')) {
+            //校验下token  如果失效了,要不重新生成一个新的!
+        }
+      }
     }
   }
 </script>
