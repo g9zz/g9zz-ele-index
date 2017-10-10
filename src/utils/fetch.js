@@ -34,7 +34,10 @@ service.interceptors.response.use(function (response) {
   // console.log(response.data);
     const code = response.data.code;
     const message = response.data.message;
-    if (code !== 0 && code !== 200) {
+    // if (code === 411000000) {
+    //   route.path('/login')
+    // }
+    if (code !== 0 && code !== 200 ) {
         Message({
           message: message,
           type: 'error',

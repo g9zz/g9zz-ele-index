@@ -49,7 +49,7 @@
   @import "../../assets/css/test1.css";
 
   .container{
-    min-width: 70%;
+    min-width: 75%;
   }
 
 </style>

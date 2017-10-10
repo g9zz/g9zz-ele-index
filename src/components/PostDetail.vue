@@ -82,7 +82,6 @@
         <span>好好说话,放下你的键盘</span>
       </div>
       <div  class="form-one">
-        <Editor></Editor>
       </div>
       <div class="form-submit">
         <el-button type="success">提交</el-button>
@@ -93,7 +92,6 @@
 </template>
 
 <script>
-  import Editor from './Editor.vue'
   import axios from '../utils/fetch.js';
   export default {
       data () {
@@ -110,7 +108,6 @@
             post_reply_num:0,
           }
       },
-    components:{Editor},
     mounted(){
       this.getPostDetail();
       this.getPostReplyList();

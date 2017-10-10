@@ -7,11 +7,13 @@ import Router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import mavonEditor from 'mavon-editor'
 
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(VueRouter);
+Vue.use(mavonEditor);
 
 /* eslint-disable no-new */
 new Vue({
