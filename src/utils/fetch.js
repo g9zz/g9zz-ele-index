@@ -16,7 +16,7 @@ const service = axios.create({
 service.interceptors.request.use(config => {
 // console.log('请求前');
   if (config.method === 'get') {
-    config.params['limit'] = 4;
+    config.params['limit'] = 100;
   }
 
   if (cookie.getCookie('token') ) {

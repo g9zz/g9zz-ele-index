@@ -39,7 +39,7 @@
     <div class="card block-list2 block-answer-list">
       <div class="reply-list">
         <div v-if="post_reply_num > 0">
-          <div v-for="item in post_reply_list" class="list-one block-question-two clearfix">
+          <div v-for="item in post_reply_list" v-highlight class="list-one block-question-two clearfix">
             <div class="l1 up-count">
               <a href="#">
                 <img class="avatar" style="width: 40px;height: 40px;border: 1px solid #85eaa9; border-radius: 4px" :src="item.user.avatar" alt="头像">
@@ -74,6 +74,14 @@
         </div>
 
       </div>
+      <div class="ft">
+        <el-pagination
+          :page-size="100"
+          layout="prev, pager, next"
+          @current-change="changePage"
+          :total="post_reply_num">
+        </el-pagination>
+      </div>
     </div>
 
     <div class="card block-form block-answer-add">
@@ -96,6 +104,8 @@
   import axios from '../utils/fetch.js';
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
+//  import hljs from 'highlight'
+//  import 'hi'
   export default {
       data () {
           return {
@@ -160,10 +170,13 @@
           this.post_script = result.postscript;
         })
       },
-      getPostReplyList() {
+      getPostReplyList(page = 1) {
           axios({
             method: 'get',
-            url:'/post/' + this.$route.params.hid + '/reply'
+            url:'/post/' + this.$route.params.hid + '/reply',
+            params:{
+              page:page,
+            }
           }).then((res) => {
 //              let result = res.data.data;
               this.post_reply_list = res.data.data;
@@ -180,9 +193,25 @@
       changes(rendor) {
         this.content = rendor;
       },
+      /**
+       * 点击分页
+       */
+      changePage(val){
+        this.getPostReplyList(val);
+      },
       submitReply() {
           axios({
-            url: ''
+            url: '/reply',
+            method: 'post',
+            params: {
+                content: this.content,
+                postHid: this.$route.params.hid
+            }
+          }).then((res) => {
+              if (res.data.code === 0) {
+                this.getPostReplyList();
+                this.content = '';
+              }
           })
       }
     }
