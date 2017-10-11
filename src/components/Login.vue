@@ -1,59 +1,79 @@
 <template>
-  <div class="block-user-view-info  block-right">
-    <h2>登录</h2>
-    <h3 class="note">所有授权登录都必须绑定邮箱!本站以邮箱账号为主</h3>
-    <div class="block myLogin" style="margin-top: 20px">
-      <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="100px" class="login-form">
-        <el-form-item label="账号" prop="email">
-          <el-input v-model="loginForm.email" size="large" placeholder="请输入登录邮箱"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input v-model="loginForm.password" size="large" type="password" placeholder="请输入密码"></el-input>
-        </el-form-item>
-        <!--<el-form-item label="邀请码" prop="invite_code">-->
+  <div>
+    <div :style="loginStyle" class="block-user-view-info  block-right">
+      <h2>登录</h2>
+      <h3 class="note">所有授权登录都必须绑定邮箱!本站以邮箱账号为主</h3>
+      <div class="block myLogin" style="margin-top: 20px">
+        <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="100px" class="login-form">
+          <el-form-item label="账号" prop="email">
+            <el-input v-model="loginForm.email" size="large" placeholder="请输入登录邮箱"></el-input>
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <el-input v-model="loginForm.password" size="large" type="password" placeholder="请输入密码"></el-input>
+          </el-form-item>
+          <!--<el-form-item label="邀请码" prop="invite_code">-->
           <!--<el-input v-model="loginForm.invite_code" size="large" type="password" placeholder="请输入邀请码"></el-input>-->
-        <!--</el-form-item>-->
-        <el-form-item label="验证码" style="width: 100%" prop="captcha">
-          <el-input style="width: 55%" v-model="loginForm.captcha" size="large"  placeholder="请输入验证码">
-          </el-input>
-          <img :src="captchaSrc" style="width: 40%;height: 42px;border-radius: 4px" @click="getCaptcha()" alt="图形验证码">
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
-          <!--<el-button @click="resetForm('loginForm')">重置</el-button>-->
-        </el-form-item>
-      </el-form>
-    </div>
-
-
-    <div class="authLogin">
-      <!--<div class="block " >-->
+          <!--</el-form-item>-->
+          <el-form-item label="验证码" style="width: 100%" prop="captcha">
+            <el-input style="width: 55%" v-model="loginForm.captcha" size="large"  placeholder="请输入验证码">
+            </el-input>
+            <img :src="captchaSrc" style="width: 40%;height: 42px;border-radius: 4px" @click="getCaptcha()" alt="图形验证码">
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
+            <!--<el-button @click="resetForm('loginForm')">重置</el-button>-->
+          </el-form-item>
+        </el-form>
+      </div>
+      <div class="authLogin">
+        <!--<div class="block " >-->
         <!--<router-link to="#">-->
-          <!--<el-button type="success" class="login email_login">邮箱登录</el-button>-->
+        <!--<el-button type="success" class="login email_login">邮箱登录</el-button>-->
         <!--</router-link>-->
-      <!--</div>-->
-      <div class="block ">
-        <a href="https://demo.g9zz.com/auth/github">
-          <el-button type="success" class="login github_login">Github登录</el-button>
-        </a>
-      </div>
-      <div class="block ">
-        <el-button type="success" class="login qq_login">QQ登录</el-button>
-      </div>
-      <div class="block ">
-        <router-link to="#">
-          <el-button type="success" class="login weibo_login">微博登录</el-button>
-        </router-link>
-      </div>
-      <div class="block " style="margin-bottom: 20px">
-        <router-link to="#">
-          <el-button type="success" class="login weixin_login">微信登录</el-button>
-        </router-link>
-      </div>
+        <!--</div>-->
+        <div class="block ">
+          <a href="https://demo.g9zz.com/auth/github">
+            <el-button type="success" class="login github_login">Github登录</el-button>
+          </a>
+        </div>
+        <div class="block ">
+          <el-button type="success" :disabled="true" class="login qq_login">QQ登录</el-button>
+        </div>
+        <div class="block ">
+          <router-link to="#">
+            <el-button type="success" :disabled="true" class="login weibo_login">微博登录</el-button>
+          </router-link>
+        </div>
+        <div class="block " style="margin-bottom: 20px">
+          <router-link to="#">
+            <el-button type="success" :disabled="true" class="login weixin_login">微信登录</el-button>
+          </router-link>
+        </div>
 
+      </div>
     </div>
-
+    <div :style="infoStyle" class="block-user-view-info  block-right">
+      <h2>{{ name }}</h2>
+      <div class="content clearfix">
+        <div class="l1">
+          <div class="user-avatar">
+            <!--<img src="//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg" class="avatar">-->
+            <img :src="avatarSrc" class="avatar">
+          </div>
+        </div>
+        <h2 style="background-color: #fff"></h2>
+        <h2 style="background-color: #fff">
+          <router-link to="/my">
+            个人中心
+          </router-link>
+        </h2>
+        <h2 style="background-color: #fff" @click="logout">
+          <a href="#">点击退出</a>
+        </h2>
+      </div>
+    </div>
   </div>
+
 
 </template>
 
@@ -86,11 +106,16 @@
         },
         captchaSrc:'', //验证码地址
         text:'',
+        name: 'G9ZZ',
+        avatarSrc: '//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg',
+        loginStyle: 'display:block',
+        infoStyle: 'display:none',
       };
     },
     mounted(){
       this.makeId();
       this.initCaptcha();
+      this.initStyle();
     },
     methods: {
       /** 初始化验证码 */
@@ -154,6 +179,43 @@
         for( let i=0; i < 10; i++ )
           text += possible.charAt(Math.floor(Math.random() * possible.length));
         this.text = text;
+      },
+      initStyle() {
+        if (cookie.getCookie('token')) {
+          //校验下token  如果失效了,要不重新生成一个新的!
+          axios({
+            url: 'updateToken',
+            method: 'get',
+            headers: {
+              'x-auth-token': cookie.getCookie('token')
+            }
+          }).then((res) => {
+            if (res.data.code === 200) {
+              cookie.setCookie('token',res.data.data.token);
+              cookie.setCookie('hid',res.data.data.hid);
+            }
+          }),
+            this.loginStyle = 'display:none';
+          this.infoStyle = 'display:block';
+          this.getUserInfo(cookie.getCookie('hid'))
+        } else {
+          this.loginStyle = 'display:block';
+          this.infoStyle = 'display:none';
+        }
+      },
+      getUserInfo(hid) {
+        axios({
+          url: '/user/' + hid,
+          method: 'get',
+        }).then((res) => {
+          this.avatarSrc = res.data.data.avatar;
+          this.name = res.data.data.name;
+        })
+      },
+      logout() {
+        cookie.clearCookie('token');
+        cookie.clearCookie('hid');
+        location.reload();
       }
     }
   }

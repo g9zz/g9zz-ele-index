@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="#">烤天下</a>
+        <a class="brand" href="/">烤天下</a>
         <nav class="navbar">
           <ul class="nav">
             <li class="pc-nav-home">

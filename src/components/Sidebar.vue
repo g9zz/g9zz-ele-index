@@ -24,6 +24,9 @@
             个人中心
           </router-link>
         </h2>
+        <h2 style="background-color: #fff" @click="logout">
+          <a href="#">点击退出</a>
+        </h2>
       </div>
     </div>
 
@@ -35,9 +38,9 @@
         </router-link>
       </div>
       <div class="block ">
-        <router-link to="#" >
-          <el-button  type="success" class="login github_login" >Github登录</el-button>
-        </router-link>
+        <a href="https://demo.g9zz.com/auth/github">
+          <el-button type="success" class="login github_login">Github登录</el-button>
+        </a>
       </div>
       <div class="block ">
           <el-button :disabled="true" type="success" class="login qq_login" >QQ登录</el-button>
@@ -182,6 +185,11 @@
               this.avatarSrc = res.data.data.avatar;
               this.name = res.data.data.name;
           })
+      },
+      logout() {
+          cookie.clearCookie('token');
+          cookie.clearCookie('hid');
+          location.reload();
       }
     }
   }
