@@ -27,11 +27,11 @@
             </div>
           </div>
         </div>
-        <div class="reply-content" v-html="post_content">
+        <div class="reply-content" v-highlight v-html="post_content">
           <!--{{ post_content }}-->
         </div>
         <div class="post-append">
-          <div v-for="item in post_script" v-html="item.content" class="list-one append-list clearfix">
+          <div v-for="item in post_script" v-highlight v-html="item.content" class="list-one append-list clearfix">
           </div>
         </div>
       </div>
