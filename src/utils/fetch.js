@@ -14,8 +14,8 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(config => {
-
-  if (config.method == 'get') {
+// console.log('请求前');
+  if (config.method === 'get') {
     config.params['limit'] = 4;
   }
 
@@ -31,12 +31,14 @@ service.interceptors.request.use(config => {
 
 // respone拦截器
 service.interceptors.response.use(function (response) {
-  // console.log(response.data);
+    // console.log('请求后',this.$route.params);
+
+    // console.log(response.data);
     const code = response.data.code;
     const message = response.data.message;
-    // if (code === 411000000) {
-    //   route.path('/login')
-    // }
+    if (code === 411000000) {
+      location.href = '/login'
+    }
     if (code !== 0 && code !== 200 ) {
         Message({
           message: message,

@@ -129,7 +129,15 @@
       return {}
     },
     components:{HeaderNode},
-    methods: {}
+    mounted() {
+      this.syncAuth();
+    },
+    methods: {
+      syncAuth() {
+          let a =  this.$route.query;
+          console.log(a,'2222343');
+      }
+    }
   }
 </script>
 

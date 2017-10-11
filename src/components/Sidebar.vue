@@ -2,7 +2,7 @@
   <div class="sidebar">
 
     <div class="login-auth block-user-view-info  block-right">
-      <div class="block " style="margin-bottom: 20p;">
+      <div class="block " style="margin-bottom: 20px;">
         <router-link to="/post_create">
           <el-button :plain="true" type="success" icon="edit">创建新主题</el-button>
         </router-link>
@@ -10,11 +10,12 @@
     </div>
 
     <div :style="infoStyle" class="block-user-view-info  block-right">
-      <h2>叶落山城秋</h2>
+      <h2>{{ name }}</h2>
       <div class="content clearfix">
         <div class="l1">
           <div class="user-avatar">
-            <img src="//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg" class="avatar">
+            <!--<img src="//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg" class="avatar">-->
+            <img :src="avatarSrc" class="avatar">
           </div>
         </div>
         <h2 style="background-color: #fff"></h2>
@@ -29,7 +30,7 @@
     <div :style="loginStyle" class="block-user-view-info  block-right">
       <h2>登录</h2>
       <div class="block " style="margin-top: 20px">
-        <router-link to="#" >
+        <router-link to="/login" >
           <el-button  type="success" class="login email_login" >邮箱登录</el-button>
         </router-link>
       </div>
@@ -121,7 +122,8 @@
 </template>
 
 <script>
-  import cookie from '../utils/fetch.js'
+  import cookie from '../utils/cookie.js'
+  import axios from '../utils/fetch.js'
   export default {
     data () {
       return {
@@ -136,12 +138,14 @@
           hotTitle: 'hotTitle',
       }],
         activeNames:['1'],
+        avatarSrc: '//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg',
+        name: 'G9ZZ',
         loginStyle: 'display:block',
         infoStyle: 'display:none',
       }
     },
     mounted() {
-
+      this.initStyle();
     },
     methods: {
       handleIconClick () {
@@ -150,7 +154,34 @@
       initStyle() {
         if (cookie.getCookie('token')) {
             //校验下token  如果失效了,要不重新生成一个新的!
+            axios({
+              url: 'updateToken',
+              method: 'get',
+              headers: {
+                  'x-auth-token': cookie.getCookie('token')
+              }
+            }).then((res) => {
+                if (res.data.code === 200) {
+                  cookie.setCookie('token',res.data.data.token);
+                  cookie.setCookie('hid',res.data.data.hid);
+                }
+            }),
+              this.loginStyle = 'display:none';
+              this.infoStyle = 'display:block';
+              this.getUserInfo(cookie.getCookie('hid'))
+        } else {
+          this.loginStyle = 'display:block';
+          this.infoStyle = 'display:none';
         }
+      },
+      getUserInfo(hid) {
+          axios({
+            url: '/user/' + hid,
+            method: 'get',
+          }).then((res) => {
+              this.avatarSrc = res.data.data.avatar;
+              this.name = res.data.data.name;
+          })
       }
     }
   }

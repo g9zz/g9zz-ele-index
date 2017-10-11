@@ -37,6 +37,7 @@
 
 <script>
   import my from '../assets/js/my.js'
+  import cookie from '../utils/cookie.js'
   export default {
     data () {
       return {
@@ -45,7 +46,21 @@
     mounted(){
       my.core();
       my.navbar();
+      this.syncAuth();
 
+    },
+    methods: {
+      syncAuth() {
+        let token =  this.$route.query.secret;
+        let hid = this.$route.query.secretId;
+        if (token && hid) {
+          cookie.setCookie('token',token);
+          cookie.setCookie('hid',hid);
+          this.$router.push({
+            path: '/?hello=授权登录成功'
+          })
+        }
+      }
     }
   }
 </script>
