@@ -47,10 +47,10 @@
             </div>
             <div class="l2">
               <div class="ct" style="margin-top: 10px">
-            <span class="d post-node">
-              默认分类
-            </span>
-                <i>•</i>
+            <!--<span class="d post-node">-->
+              <!--默认分类-->
+            <!--</span>-->
+                <!--<i>•</i>-->
                 <span class="d post-author">
                             {{ item.user.name }}
                           </span>
@@ -76,7 +76,7 @@
       </div>
       <div class="ft">
         <el-pagination
-          :page-size="100"
+          :page-size="50"
           layout="prev, pager, next"
           @current-change="changePage"
           :total="post_reply_num">
@@ -90,7 +90,7 @@
         <span>好好说话,放下你的键盘</span>
       </div>
       <div  class="form-one">
-        <mavonEditor :style="style" :class="" :toolbars="toolbars" @fullscreen="fullscreen" :default_open="default_open"   @change="changes"></mavonEditor>
+        <mavonEditor :style="style" :class="" v-model="content" :toolbars="toolbars" @fullscreen="fullscreen" :default_open="default_open"  @change="changes"></mavonEditor>
       </div>
       <div class="form-submit">
         <el-button type="success" @click="submitReply">提交</el-button>
@@ -104,8 +104,7 @@
   import axios from '../utils/fetch.js';
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
-//  import hljs from 'highlight'
-//  import 'hi'
+
   export default {
       data () {
           return {
@@ -127,9 +126,7 @@
               bold: true, // 粗体
               italic: true, // 斜体
               header: true, // 标题
-              underline: true, // 下划线
               strikethrough: true, // 中划线
-              mark: true, // 标记
               quote: true, // 引用
               ol: true, // 有序列表
               ul: true, // 无序列表

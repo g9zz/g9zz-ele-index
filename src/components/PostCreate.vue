@@ -61,9 +61,7 @@
           bold: true, // 粗体
           italic: true, // 斜体
           header: true, // 标题
-          underline: true, // 下划线
           strikethrough: true, // 中划线
-          mark: true, // 标记
           quote: true, // 引用
           ol: true, // 有序列表
           ul: true, // 无序列表

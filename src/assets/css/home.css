@@ -52,9 +52,10 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 	#header {position:fixed;top:0;left:0;right:0;
 		background-repeat:repeat-x;
 		-webkit-transition:all .5s;transition:all .5s;
-		background-image: -webkit-linear-gradient(top, #fff, rgba(0,0,0,0));
+		/*background-image: -webkit-linear-gradient(top, #fff, rgba(0,0,0,0));*/
 		background-image:      -o-linear-gradient(top, #fff, rgba(0,0,0,0));
-		background-image:         linear-gradient(to bottom, #fff, rgba(0,0,0,0));}
+		/*background-image:         linear-gradient(to bottom, #fff, rgba(0,0,0,0));*/
+  }
 	.global-nav {-webkit-transition:all .5s;transition:all .5s;}
 	.brand {float:left;width:190px;height:60px;-webkit-transition:all .5s;transition:all .5s;}
 	.navbar-toggle {display:none;}
