@@ -54,7 +54,7 @@
                 <!--</span>-->
                 <!--<i>•</i>-->
 
-                
+
                 <span class="d post-author">
                             {{ item.user.name }}
                           </span>
