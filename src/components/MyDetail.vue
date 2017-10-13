@@ -24,7 +24,7 @@
             <dd>
               <div class="setting_show_one">
                 <span class="c">{{ my_email }}</span>
-                <el-button type="info" @click="verifyEmail()">验证邮箱</el-button>
+                <el-button type="info" :disabled="my_verified"  @click="verifyEmail()">验证邮箱</el-button>
               </div>
             </dd>
           </dl>
@@ -49,44 +49,25 @@
         <div class="block-list block-feed-list">
           <div class="content">
             <div class="ft clearfix" style="border-bottom: 1px solid rgb(228, 231, 234)">
-              <el-button type="success">一键全部标记已读</el-button>
+              <el-button type="success" @click="clickUnRead">一键全部标记已读</el-button>
             </div>
             <div class="content">
-              <div class="list-one userfeed-one">
-                <p class="feed-type">
-                  提出了问题
-                  <span class="feed-time">8月29日 16:10</span>
-                </p>
-                <div class="list-one block-question-one clearfix">
-                  <div class="ct">
-                    <h3>
-                      <a href="/question/59a521655f1a624eea2a9da0">最近重新恢复了数据?</a>
-                    </h3>
-                  </div>
-                  <div class="content">
-                    <div class="summary clearfix">
-                      <div class="text">
-                        <span>我记得我之前就注册过了..前几天登录发现页面500了今天再登录..感觉 我是新注册的...</span>
-                      </div>
+              <div v-for="item in notify_list">
+                <div class="list-one userfeed-one" :style="item.readAt ? '' : '    background-color: aliceblue;'" >
+                  <p class="feed-type">
+                    <span v-if="item.type === 'reply'">提出了问题</span>
+                    <span v-else>@了你</span>
+                    <span class="feed-time">{{item.createdAt}}</span>
+                  </p>
+                  <div class="list-one block-question-one clearfix">
+                    <div class="ct">
+                      <h3>
+                        <router-link  v-on:click.native="signRead(item.id)" :to="'post/'+item.post.hid">{{ item.post.title }}</router-link>
+                      </h3>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="list-one userfeed-one">
-                <p class="feed-type">
-                  提出了问题
-                  <span class="feed-time">8月29日 16:10</span>
-                </p>
-                <div class="list-one block-question-one clearfix">
-                  <div class="ct">
-                    <h3>
-                      <a href="/question/59a521655f1a624eea2a9da0">最近重新恢复了数据?</a>
-                    </h3>
-                  </div>
-                  <div class="content">
-                    <div class="summary clearfix">
-                      <div class="text">
-                        <span>我记得我之前就注册过了..前几天登录发现页面500了今天再登录..感觉 我是新注册的...</span>
+                    <div class="content">
+                      <div class="summary clearfix">
+                        <div class="text" v-highlight v-html="item.body"></div>
                       </div>
                     </div>
                   </div>
@@ -96,7 +77,7 @@
             <div class="ft">
               <el-pagination
                 layout="prev, pager, next"
-                :total="1000">
+                :total="notifyPageTotal">
               </el-pagination>
             </div>
           </div>
@@ -122,37 +103,69 @@
         my_name: '',
         my_email: '',
         my_avatar: '',
+        my_verified: false,
         githubShow: false,
         qqShow: false,
         weiboShow: false,
         weixinShow: false,
         googleShow: false,
-        xcxShow: false
+        xcxShow: false,
+
+        notify_list: [],//提醒列表
+        notifyPageTotal:0,
       }
     },
     mounted() {
-      this.getMyDetail();
+      this.getActivityPage();
     },
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
+          if (this.activeName === 'first') {
+            this.getMyDetail();
+          } else {
+              this.getNoticeDetail();
+          }
       },
-
+      getActivityPage() {
+          let activityPage = this.$route.query.activePage;
+          console.log(activityPage);
+          if (activityPage == 2) {
+            this.activeName = 'second';
+            this.getNoticeDetail();
+          } else {
+            this.activeName = 'first';
+            this.getMyDetail();
+          }
+      },
       getNoticeDetail(){
-          
+        axios({
+          url: '/notify',
+          method: 'get',
+        }).then((res) => {
+            this.notify_list = res.data.data;
+            this.notifyPageTotal = res.data.pager.entities;
+        })
       },
 
-
+      /** 验证邮箱 */
       verifyEmail() {
           axios({
             method:'get',
-            url:'/user/verify'
+            url:'/user/get/verify'
           }).then((res) => {
-            Message({
-              message: '已成功发送,请检查邮箱邮件',
-              type: 'success',
-              duration: 5 * 1000
-            });
+              if (res.data.data.code === 0) {
+                Message({
+                  message: '已成功发送,请检查邮箱邮件',
+                  type: 'success',
+                  duration: 5 * 1000
+                });
+              } else {
+                Message({
+                  message: res.data.message,
+                  type: 'error',
+                  duration: 5 * 1000
+                });
+              }
           })
       },
 
@@ -166,6 +179,7 @@
           this.my_name = res.data.data.name;
           this.my_email = res.data.data.email;
           this.my_avatar = res.data.data.avatar;
+          this.my_verified = res.data.data.verified  === 'false' ? false : true;
           if (res.data.data.xcx) {
             this.xcxShow = true;
           }
@@ -184,10 +198,34 @@
           if (res.data.data.qq) {
             this.qqShow = true;
           }
-
+          console.log(this.my_verified);
         })
       },
 
+      /** 全部标记已读 */
+      clickUnRead() {
+          axios({
+            url: '/notify/set/allRead',
+            method: 'post'
+          }).then((res) => {
+            if (res.data.code === 0) {
+              Message({
+                message: '全部标记已读成功',
+                type: 'success',
+                duration: 5 * 1000
+              });
+              setTimeout("location.reload();",3000)
+            }
+          })
+      },
+
+      signRead(id) {
+        axios({
+          url: '/notify/set/'+id+'/read',
+          method: 'post'
+        }).then((res) => {
+        })
+      }
 
     }
   }

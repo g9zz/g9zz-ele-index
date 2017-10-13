@@ -24,6 +24,11 @@
             个人中心
           </router-link>
         </h2>
+        <h2 style="background-color: #fff">
+          <router-link to="/my?activePage=2" >
+            未读动态({{ unreadNum }})
+          </router-link>
+        </h2>
         <h2 style="background-color: #fff" @click="logout">
           <a href="#">点击退出</a>
         </h2>
@@ -145,6 +150,7 @@
         name: 'G9ZZ',
         loginStyle: 'display:block',
         infoStyle: 'display:none',
+        unreadNum: 0,
       }
     },
     mounted() {
@@ -171,11 +177,22 @@
             }),
               this.loginStyle = 'display:none';
               this.infoStyle = 'display:block';
-              this.getUserInfo(cookie.getCookie('hid'))
+              let hid = cookie.getCookie('hid');
+              this.getUserInfo(hid);
+              this.getUnreadNum(hid);
         } else {
           this.loginStyle = 'display:block';
           this.infoStyle = 'display:none';
         }
+      },
+      getUnreadNum(hid) {
+          let that = this;
+          axios({
+            url: '/notify/unreadNum',
+            method: 'get'
+          }).then((res) => {
+            that.unreadNum = res.data.data.count;
+          })
       },
       getUserInfo(hid) {
           axios({

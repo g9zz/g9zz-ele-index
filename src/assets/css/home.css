@@ -14,7 +14,7 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 .brand {display:block;overflow:hidden;width:101px;height:32px;margin:9px 0;text-indent:-999px;background:url("../images/nice.png") no-repeat center top;-moz-background-size:cover;-webkit-background-size:cover;background-size:cover;}
 
 @media print, only screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min-resolution: 144dpi), screen and (min-resolution: 144dppx){
-	.brand {background-image:url("../img/icon/site-brand@2x.png");}
+	.brand {background-image:url("../myLogo1.png");}
 }
 
 .navbar-toggle {float:right;width:40px;height:32px;margin:9px 0;border:0;padding:5px 9px;background:none;cursor:pointer;}
