@@ -11,12 +11,14 @@ import Login from '../page/auth/Login.vue'
 import Register from '../page/auth/Register.vue'
 import myCookie from '../utils/cookie.js'
 import AuthLogin from '../page/auth/AuthLogin.vue'
+import NodeIndex from '../page/node/Index.vue'
 
 const routes = [
   { path: '/', name: '首页', component: Index,},
   { path: '/post/:hid', name: '详情', component: Show},
   { path: '/post_create', name: '创建', meta: { auth:true }, component: Create},
   { path: '/my', name: '个人中心', meta: { auth:true }, component: My},
+  { path: '/node', name: '节点列表', component: NodeIndex },
   { path: '/login', name: '登录', component: Login },
   { path: '/register', name: '注册', component: Register },
   { path: '/authLogin', name: '注册', component: AuthLogin }

@@ -2,16 +2,13 @@
   <div id="my-all">
     <div class="app">
       <NewHeader></NewHeader>
-      <HeaderNode></HeaderNode>
-      <div class="r-content">
+      <div class="r-content" style="margin-top: 160px">
         <div>
-
           <div class="container">
             <div class="row">
               <div class="col-md-9">
-                <PostList></PostList>
+                <Node></Node>
               </div>
-
               <div class="col-md-3">
                 <Sidebar></Sidebar>
               </div>
@@ -33,12 +30,13 @@
   import PostList from '../../components/PostList.vue'
   import PostDetail from '../../components/PostDetail.vue'
   import HeaderNode from '../../components/HeaderNode.vue'
+  import Node from '../../components/Node.vue'
   export default {
     data () {
       return {
       }
     },
-    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode},
+    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode,Node},
     methods: {
 
     }
@@ -50,6 +48,7 @@
 
   .container{
     min-width: 70%;
+    margin-top: 30px;
   }
 
 </style>
