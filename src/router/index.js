@@ -2,13 +2,13 @@ import Router from 'vue-router'
 import Index from '../page/post/Index.vue'
 import Show from '../page/post/Show.vue'
 import Create from '../page/post/Create.vue'
-import My1 from '../page/my/index.vue'
 import Login from '../page/auth/Login.vue'
 import Register from '../page/auth/Register.vue'
 import myCookie from '../utils/cookie.js'
 import AuthLogin from '../page/auth/AuthLogin.vue'
 import NodeIndex from '../page/node/Index.vue'
 import PostListWithNode from '../page/node/Post.vue'
+import My1 from '../page/my/index.vue'
 
 const routes = [
   { path: '/', name: '首页', component: Index,},
