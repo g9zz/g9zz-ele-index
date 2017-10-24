@@ -8,7 +8,7 @@ import myCookie from '../utils/cookie.js'
 import AuthLogin from '../page/auth/AuthLogin.vue'
 import NodeIndex from '../page/node/Index.vue'
 import PostListWithNode from '../page/node/Post.vue'
-import My1 from '../page/my/index.vue'
+import My1 from '../page/my/Index.vue'
 
 const routes = [
   { path: '/', name: '首页', component: Index,},
