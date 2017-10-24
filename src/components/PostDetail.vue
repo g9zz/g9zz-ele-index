@@ -144,7 +144,9 @@
     components: {mavonEditor},
     mounted(){
       this.getPostDetail();
-      this.getPostReplyList();
+    },
+    watch: {
+      "$route": "getPostDetail"
     },
     methods: {
 
@@ -152,6 +154,7 @@
        * 帖子详情
        */
       getPostDetail() {
+        this.getPostReplyList();
         axios({
           method: 'get',
           url: '/post/' + this.$route.params.hid

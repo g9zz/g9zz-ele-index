@@ -7,27 +7,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="/">烤天下</a>
+        <a class="brand" href="/">G9ZZ</a>
         <nav class="navbar">
           <ul class="nav">
             <li class="pc-nav-home">
-              <a href="#" >叶落</a>
+              <a href="https://www.iphpt.com" >叶落</a>
             </li>
             <li class="pc-nav-food">
-              <a href="#">Github</a>
+              <a href="https://github.com/g9zz">Github</a>
             </li>
             <li class="pc-nav-char">
-              <a href="#">微博</a>
+              <a href="https://weibo.com/ylsc633/profile?rightmod=1&wvr=6&mod=personinfo">微博</a>
             </li>
-            <!--<li class="pc-nav-join">-->
-              <!--<a href="#">招商加盟</a>-->
-            <!--</li>-->
-            <!--<li class="pc-nav-ente">-->
-              <!--<a href="p#">企业概况</a>-->
-            <!--</li>-->
-            <!--<li class="pc-nav-menn">-->
-              <!--<a href="#">联系我们</a>-->
-            <!--</li>-->
           </ul>
         </nav>
       </div>

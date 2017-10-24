@@ -67,7 +67,7 @@
 
     <div class="search">
       <el-input
-        placeholder="搜索.."
+        placeholder="搜索功能还未完成.."
         size="large"
         icon="search"
         v-model="postSearch"
@@ -90,10 +90,11 @@
         :data="hotData"
         class="hotTable"
         :show-header="false"
+        @row-click="clickPopPost"
         :border="false"
         >
         <el-table-column
-          prop="hotTitle"
+          prop="title"
           header-align="center"
           show-overflow-tooltip
           >
@@ -136,15 +137,7 @@
     data () {
       return {
         postSearch:'',
-        hotData: [{
-          hotTitle: '2016-05-02',
-      }, {
-          hotTitle: '2016-05-04',
-      }, {
-          hotTitle: 'hotTitlehotTitlehhotTitlehotTitlehotTitleotTitlehotTitlehotTitlehotTitlehotTitlehotTitlehotTitle',
-      }, {
-          hotTitle: 'hotTitle',
-      }],
+        hotData: [],
         activeNames:['1'],
         avatarSrc: '//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg',
         name: 'G9ZZ',
@@ -155,6 +148,7 @@
     },
     mounted() {
       this.initStyle();
+      this.getPopPost();
     },
     methods: {
       handleIconClick () {
@@ -202,6 +196,18 @@
               this.avatarSrc = res.data.data.avatar;
               this.name = res.data.data.name;
           })
+      },
+      getPopPost() {
+          axios({
+              url:'/post/most/pop',
+              method:'get',
+          }).then((res) => {
+              this.hotData = res.data.data;
+          })
+      },
+      clickPopPost(val){
+          console.log(2222);
+          this.$router.push('/post/'+val.hid);
       },
       logout() {
           cookie.clearCookie('token');

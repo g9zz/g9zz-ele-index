@@ -6,16 +6,17 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app',
+  }
 </script>
 
 <style>
-  body{
-    margin:0;
+  body {
+    margin: 0;
     background-color: rgb(255, 255, 255);
   }
+
   #app {
     height: 100%;
   }
