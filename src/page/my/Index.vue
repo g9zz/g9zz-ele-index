@@ -4,12 +4,9 @@
       <NewHeader></NewHeader>
       <div class="r-content" style="margin-top: 160px">
         <div>
-          <!--<HeaderNode></HeaderNode>-->
           <div class="container">
             <div class="row">
               <div class="col-md-9">
-                <!--<PostDetail></PostDetail>-->
-                <!--<PostList></PostList>-->
                 <MyDetail></MyDetail>
               </div>
 
@@ -31,16 +28,13 @@
   import NewHeader from '../../components/NewHeader.vue'
   import Sidebar from '../../components/Sidebar.vue'
   import MyFooter from '../../components/Footer.vue'
-  import PostList from '../../components/PostList.vue'
-  import PostDetail from '../../components/PostDetail.vue'
-  import HeaderNode from '../../components/HeaderNode.vue'
   import MyDetail from '../../components/MyDetail.vue'
   export default {
     data () {
       return {
       }
     },
-    components: {MyFooter,Sidebar,PostList,PostDetail,NewHeader,HeaderNode,MyDetail},
+    components: {MyFooter,Sidebar,NewHeader,MyDetail},
     methods: {
 
     }
