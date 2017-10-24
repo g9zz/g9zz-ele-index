@@ -47,7 +47,7 @@
 </script>
 
 <style scoped>
-  @import "../../assets/css/test1.css";
+  @import "../../../static/css/test1.css";
 
   .col-md-4 {
     max-width: 420px;

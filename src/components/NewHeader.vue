@@ -58,6 +58,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import "../assets/css/home.css";
-  @import "../assets/css/icon.css";
+  @import "../../static/css/home.css";
+  @import "../../static/css/icon.css";
 </style>

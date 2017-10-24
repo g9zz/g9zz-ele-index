@@ -47,7 +47,7 @@
 </script>
 
 <style scoped>
-  @import "../../assets/css/test1.css";
+  @import "../../../static/css/test1.css";
 
   .container{
     min-width: 70%;

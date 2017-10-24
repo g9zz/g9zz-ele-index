@@ -24,7 +24,7 @@
 </script>
 
 <style scoped>
-  @import "../assets/css/test1.css";
+  @import "../../static/css/test1.css";
   .el-dropdown-link {
     color: #fff;
   }

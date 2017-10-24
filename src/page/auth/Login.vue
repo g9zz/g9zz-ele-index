@@ -46,7 +46,7 @@
 </script>
 
 <style scoped>
-  @import "../../assets/css/test1.css";
+  @import "../../../static/css/test1.css";
 
   /*#my-all {*/
     /*!*background-image: url("http://www.jq22.com/demo/jquery-login-20150514/img/1.jpg");*!*/
