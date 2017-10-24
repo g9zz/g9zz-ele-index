@@ -49,12 +49,6 @@
             </div>
             <div class="l2">
               <div class="ct" style="margin-top: 10px">
-                <!--<span class="d post-node">-->
-                <!--默认分类-->
-                <!--</span>-->
-                <!--<i>•</i>-->
-
-
                 <span class="d post-author">
                             {{ item.user.name }}
                           </span>
@@ -66,7 +60,9 @@
               </div>
               <div class="line"></div>
               <div v-html="item.content" v-highlight class="reply-detail"></div>
+
             </div>
+
           </div>
         </div>
         <div v-else>

@@ -4,11 +4,15 @@
     <div v-for="tag in tags">
       <el-card class="box-card" v-if="tag.parentHid == 0">
         <div slot="header" class="clearfix">
-          <span v-if="tag.level === 0">{{ tag.displayName }}</span>
+          <router-link :to="'/node/' +  tag.hid  + '/post'">
+            <span v-if="tag.level === 0">{{ tag.displayName }}</span>
+          </router-link>
         </div>
-          <el-tag v-for="tag1 in tags" v-if="tag1.parentHid == tag.hid"  type="gray" :key="tag1.name">
+        <el-tag v-for="tag1 in tags" v-if="tag1.parentHid == tag.hid" type="primary" :key="tag1.name">
+          <router-link :to="'/node/' +  tag1.hid  + '/post'">
             {{tag1.displayName}}
-          </el-tag>
+          </router-link>
+        </el-tag>
       </el-card>
     </div>
 

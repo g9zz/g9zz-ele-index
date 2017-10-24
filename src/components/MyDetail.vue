@@ -6,9 +6,16 @@
           <dl class="clearfix">
             <dt>头像</dt>
             <dd class="user-avatar">
-              <img
-                :src="my_avatar"
-                class="avatar">
+              <el-upload
+                class="avatar-uploader"
+                :action= "avatarUploadUrl"
+                :show-file-list="false"
+                :headers="avatarUploadHeaders"
+                :on-success="handleAvatarSuccess"
+                :before-upload="beforeAvatarUpload">
+                <img v-if="my_avatar" :src="my_avatar" class="avatar">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              </el-upload>
             </dd>
           </dl>
           <dl class="clearfix">
@@ -77,6 +84,7 @@
             <div class="ft">
               <el-pagination
                 layout="prev, pager, next"
+                :page-size="20"
                 :total="notifyPageTotal">
               </el-pagination>
             </div>
@@ -111,35 +119,51 @@
         googleShow: false,
         xcxShow: false,
 
+        avatarUploadUrl: '',
+        avatarUploadHeaders: {},
+
         notify_list: [],//提醒列表
         notifyPageTotal:0,
       }
     },
     mounted() {
       this.getActivityPage();
+      this.uploadUrl();
+      this.uploadHeaders();
     },
     methods: {
+      uploadUrl () {
+        this.avatarUploadUrl = process.env.BASE_API+'/user/upload/avatar';
+      },
+
+      uploadHeaders() {
+          this.avatarUploadHeaders = {
+            'x-auth-token' : cookie.getCookie('token')
+          }
+      },
+
+
       handleClick(tab, event) {
           if (this.activeName === 'first') {
             this.getMyDetail();
           } else {
-              this.getNoticeDetail();
+              this.getNoticeDetail(1);
           }
       },
       getActivityPage() {
           let activityPage = this.$route.query.activePage;
-          console.log(activityPage);
+//          console.log(activityPage);
           if (activityPage == 2) {
             this.activeName = 'second';
-            this.getNoticeDetail();
+            this.getNoticeDetail(1);
           } else {
             this.activeName = 'first';
             this.getMyDetail();
           }
       },
-      getNoticeDetail(){
+      getNoticeDetail(page=1){
         axios({
-          url: '/notify',
+          url: '/notify?page=' + page + '&limit=20',
           method: 'get',
         }).then((res) => {
             this.notify_list = res.data.data;
@@ -153,18 +177,10 @@
             method:'get',
             url:'/user/get/verify'
           }).then((res) => {
-              if (res.data.data.code === 0) {
-                Message({
-                  message: '已成功发送,请检查邮箱邮件',
-                  type: 'success',
-                  duration: 5 * 1000
-                });
+              if (res.data.code === 0) {
+                this.$message.success('已成功发送,请检查邮箱邮件');
               } else {
-                Message({
-                  message: res.data.message,
-                  type: 'error',
-                  duration: 5 * 1000
-                });
+                this.$message.error(res.data.message);
               }
           })
       },
@@ -198,7 +214,7 @@
           if (res.data.data.qq) {
             this.qqShow = true;
           }
-          console.log(this.my_verified);
+          console.log(this.my_verified,'MyDetail_getMyDetail');
         })
       },
 
@@ -209,11 +225,7 @@
             method: 'post'
           }).then((res) => {
             if (res.data.code === 0) {
-              Message({
-                message: '全部标记已读成功',
-                type: 'success',
-                duration: 5 * 1000
-              });
+              this.$message.error('全部标记已读成功');
               setTimeout("location.reload();",3000)
             }
           })
@@ -225,7 +237,27 @@
           method: 'post'
         }).then((res) => {
         })
+      },
+      handleAvatarSuccess(res, file) {
+        if (res.code === 0) {
+            this.$message.success('上传成功');
+          setTimeout("location.reload();",3000)
+        }
+      },
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isPNG = file.type === 'image/png';
+        const isLt2M = file.size / 1024 / 1024 < 1;
+
+        if (!isJPG && !isPNG) {
+          this.$message.error('上传头像图片只能是 JPG/PNG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return (isJPG || isPNG) && isLt2M ;
       }
+
 
     }
   }
@@ -235,5 +267,23 @@
   .setting_show_one > img {
     width: 30px;
     height: 30px;
+  }
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #20a0ff;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
   }
 </style>

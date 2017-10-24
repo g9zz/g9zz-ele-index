@@ -17,7 +17,7 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 	.brand {background-image:url("../myLogo1.png");}
 }
 
-.navbar-toggle {float:right;width:40px;height:32px;margin:9px 0;border:0;padding:5px 9px;background:none;cursor:pointer;}
+.navbar-toggle {float:right;width:40px;height:32px;margin:9px 0;border:0;padding:5px 9px;cursor:pointer;background-color: #79c3fb;}
 .navbar-toggle .icon-bar {display:block;width:22px;height:2px;background:#fff;-webkit-transition: 0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);transition: 0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);}
 .navbar-toggle .icon-bar + .icon-bar {margin-top:4px;}
 
@@ -382,23 +382,17 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 
 
 /* nav*/
-.pc-nav-home a:hover { background:url("../img/nav/home.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px; }
 .pc-nav-home .home-current {background:url("../img/nav/home.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px; }
 
-.pc-nav-food a:hover {background:url("../img/nav/food.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px;  }
 .pc-nav-food .food-current {background:url("../img/nav/food.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px;  }
 
-.pc-nav-char a:hover { background:url("../img/nav/char.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px }
 .pc-nav-char .char-current { background:url("../img/nav/char.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px }
 
-.pc-nav-join a:hover { background:url("../img/nav/join.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px }
 .pc-nav-join .join-current { background:url("../img/nav/join.png") no-repeat ; background-size:70px; background-position:center;text-indent:-9999px }
 
-.pc-nav-ente a:hover { background:url("../img/nav/ente.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px }
 .pc-nav-ente .ente-current { background:url("../img/nav/ente.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px  }
 
 
-.pc-nav-menn a:hover { background:url("../img/nav/menn.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px }
 .pc-nav-menn .menn-current { background:url("../img/nav/menn.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px  }
 
 
