@@ -22,11 +22,13 @@
         <h2 style="background-color: #fff">
           <router-link to="/my">
             个人中心
+
           </router-link>
         </h2>
         <h2 style="background-color: #fff">
-          <router-link to="/my?activePage=2" >
+          <router-link to="/my?activePage=2">
             未读动态({{ unreadNum }})
+
           </router-link>
         </h2>
         <h2 style="background-color: #fff" @click="logout">
@@ -38,8 +40,8 @@
     <div :style="loginStyle" class="block-user-view-info  block-right">
       <h2>登录</h2>
       <div class="block " style="margin-top: 20px">
-        <router-link to="/login" >
-          <el-button  type="success" class="login email_login" >邮箱登录</el-button>
+        <router-link to="/login">
+          <el-button type="success" class="login email_login">邮箱登录</el-button>
         </router-link>
       </div>
       <div class="block ">
@@ -48,21 +50,20 @@
         </a>
       </div>
       <div class="block ">
-          <el-button :disabled="true" type="success" class="login qq_login" >QQ登录</el-button>
+        <el-button :disabled="true" type="success" class="login qq_login">QQ登录</el-button>
       </div>
       <div class="block ">
         <!--<router-link to="/" >-->
-          <el-button :disabled="true" type="success" class="login weibo_login" >微博登录</el-button>
+        <el-button :disabled="true" type="success" class="login weibo_login">微博登录</el-button>
         <!--</router-link>-->
       </div>
       <div class="block " style="margin-bottom: 20px">
         <!--<router-link to="/" >-->
-          <el-button :disabled="true" type="success" class="login weixin_login" >微信登录</el-button>
+        <el-button :disabled="true" type="success" class="login weixin_login">微信登录</el-button>
         <!--</router-link>-->
       </div>
 
     </div>
-
 
 
     <div class="search">
@@ -78,28 +79,40 @@
       <h2>ad</h2>
       <!--<div class="f-g-f"><span>ad</span></div>-->
       <div class="ad-img">
-        <a href="#" ><img class="ad-1" src="../assets/ad-test.jpg" alt=""></a>
-        <a href="#" ><img class="ad-1" src="../assets/ad-test.jpg" alt=""></a>
+        <a href="#"><img class="ad-1" src="../../static/ad-test.jpg" alt=""></a>
+        <a href="#"><img class="ad-1" src="../../static/ad-test.jpg" alt=""></a>
       </div>
 
     </div>
     <div class="hot block-user-view-info  block-right">
       <!--<div class="f-g-f"><span>hot topics</span></div>-->
-        <h2>hot topics</h2>
+      <h2>hot topics</h2>
       <el-table
         :data="hotData"
         class="hotTable"
         :show-header="false"
         @row-click="clickPopPost"
         :border="false"
-        >
+      >
         <el-table-column
           prop="title"
           header-align="center"
           show-overflow-tooltip
-          >
+        >
         </el-table-column>
       </el-table>
+    </div>
+    <div class="hot block-user-view-info  block-right">
+      <!--<div class="f-g-f"><span>hot topics</span></div>-->
+      <h2>hot node</h2>
+      <div style="margin: 10px">
+        <router-link to="#"><el-tag style="margin: 4px"> 标签1 </el-tag></router-link>
+        <el-tag type="gray">标签二</el-tag>
+        <el-tag type="primary">标签三</el-tag>
+        <el-tag type="success">标签四</el-tag>
+        <el-tag type="warning">标签五</el-tag>
+        <el-tag type="danger">标签六</el-tag>
+      </div>
     </div>
     <div class="note block-user-view-info  block-right">
       <h2>note</h2>
@@ -136,9 +149,9 @@
   export default {
     data () {
       return {
-        postSearch:'',
+        postSearch: '',
         hotData: [],
-        activeNames:['1'],
+        activeNames: ['1'],
         avatarSrc: '//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg',
         name: 'G9ZZ',
         loginStyle: 'display:block',
@@ -152,67 +165,67 @@
     },
     methods: {
       handleIconClick () {
-          console.log('帖子搜索',this.postSearch);
+        console.log('帖子搜索', this.postSearch);
       },
       initStyle() {
         if (cookie.getCookie('token')) {
-            //校验下token  如果失效了,要不重新生成一个新的!
-            axios({
-              url: 'updateToken',
-              method: 'get',
-              headers: {
-                  'x-auth-token': cookie.getCookie('token')
-              }
-            }).then((res) => {
-                if (res.data.code === 200) {
-                  cookie.setCookie('token',res.data.data.token);
-                  cookie.setCookie('hid',res.data.data.hid);
-                }
-            }),
-              this.loginStyle = 'display:none';
-              this.infoStyle = 'display:block';
-              let hid = cookie.getCookie('hid');
-              this.getUserInfo(hid);
-              this.getUnreadNum(hid);
+          //校验下token  如果失效了,要不重新生成一个新的!
+          axios({
+            url: 'updateToken',
+            method: 'get',
+            headers: {
+              'x-auth-token': cookie.getCookie('token')
+            }
+          }).then((res) => {
+            if (res.data.code === 200) {
+              cookie.setCookie('token', res.data.data.token);
+              cookie.setCookie('hid', res.data.data.hid);
+            }
+          }),
+            this.loginStyle = 'display:none';
+          this.infoStyle = 'display:block';
+          let hid = cookie.getCookie('hid');
+          this.getUserInfo(hid);
+          this.getUnreadNum(hid);
         } else {
           this.loginStyle = 'display:block';
           this.infoStyle = 'display:none';
         }
       },
       getUnreadNum(hid) {
-          let that = this;
-          axios({
-            url: '/notify/unreadNum',
-            method: 'get'
-          }).then((res) => {
-            that.unreadNum = res.data.data.count;
-          })
+        let that = this;
+        axios({
+          url: '/notify/unreadNum',
+          method: 'get'
+        }).then((res) => {
+          that.unreadNum = res.data.data.count;
+        })
       },
       getUserInfo(hid) {
-          axios({
-            url: '/user/' + hid,
-            method: 'get',
-          }).then((res) => {
-              this.avatarSrc = res.data.data.avatar;
-              this.name = res.data.data.name;
-          })
+        axios({
+          url: '/user/' + hid,
+          method: 'get',
+        }).then((res) => {
+          this.avatarSrc = res.data.data.avatar;
+          this.name = res.data.data.name;
+        })
       },
       getPopPost() {
-          axios({
-              url:'/post/most/pop',
-              method:'get',
-          }).then((res) => {
-              this.hotData = res.data.data;
-          })
+        axios({
+          url: '/post/most/pop',
+          method: 'get',
+        }).then((res) => {
+          this.hotData = res.data.data;
+        })
       },
       clickPopPost(val){
-          console.log(2222);
-          this.$router.push('/post/'+val.hid);
+        console.log(2222);
+        this.$router.push('/post/' + val.hid);
       },
       logout() {
-          cookie.clearCookie('token');
-          cookie.clearCookie('hid');
-          location.reload();
+        cookie.clearCookie('token');
+        cookie.clearCookie('hid');
+        location.reload();
       }
     }
   }
@@ -226,62 +239,73 @@
     /*border: 1px solid #d1dbe5;*/
     /*border-radius: 4px;*/
   }
+
   .sidebar > div {
     border: 0 solid #d1dbe5;
     border-radius: 4px;
     box-shadow: 0 6px 11px #dad3d2;
   }
 
-  .block-siteuser-add{
+  .block-siteuser-add {
     margin-bottom: 15px;
   }
-  .block-user-view-info{
+
+  .block-user-view-info {
     background-color: #fff;
     margin-bottom: 15px;
   }
+
   .block-user-view-info .block {
     text-align: center;
   }
+
   .login-auth {
     background-color: #fff;
 
   }
+
   .search {
     margin-top: 15px;
     min-height: 20px;
     background-color: #fff;
     padding: 10px;
   }
+
   .ad {
     margin-top: 15px;
     min-height: 100px;
     background-color: #fff;
   }
+
   .ad-img {
     padding: 10px;
     background-color: #fff;
   }
+
   .ad-1 {
-    height:50px;
-    width:100%;
+    height: 50px;
+    width: 100%;
     overflow: hidden;
-    background-size:cover;
+    background-size: cover;
     margin-top: 5px;
 
   }
+
   .hot {
     margin-top: 15px;
     min-height: 100px;
     background-color: #fff;
   }
+
   .hotTable {
     width: 100%;
     padding: 10px;
   }
+
   .note {
     margin-top: 15px;
     min-height: 100px;
-    background-color:#fff;
+    background-color: #fff;
   }
 
   .f-g-f {
@@ -291,43 +315,50 @@
     border-bottom: 1px solid #ddd;
     background-color: #eef5f1;
   }
-  .f-g-f span{
+
+  .f-g-f span {
     letter-spacing: 0;
-    line-height:8px;
-    text-align:center;
-    display:block;
+    line-height: 8px;
+  /assets/ images / weibo . png text-align: center;
+    display: block;
   }
+
   /*.block-siteuser-add .lbtn  {*/
-    /*width: 100%;*/
-    /*padding: 8px 0;*/
+  /*width: 100%;*/
+  /*padding: 8px 0;*/
   /*}*/
-  .login{
+  .login {
     margin: 5px;
     width: 50%;
   }
-  .github_login{
+
+  .github_login {
     border-color: black;
     color: black;
-    background: url('../assets/images/github_login.png') no-repeat 20px 9px #fff;
+    background: url('../../static/images/github_login.png') no-repeat 10px 9px #fff;
   }
-  .email_login{
+
+  .email_login {
     border-color: #acacac;
     color: #acacac;
-    background: url('../assets/images/email_login.jpg') no-repeat 20px 9px #fff;
+    background: url('../../static/images/email_login.jpg') no-repeat 10px 9px #fff;
   }
-  .qq_login{
+
+  .qq_login {
     border-color: #37b5f9;
     color: #37b5f9;
-    background: url('../assets/images/qq_login_03.jpg') no-repeat 20px 8px #fff;
+    background: url('../../static/images/qq_login_03.jpg') no-repeat 10px 8px #fff;
   }
-  .weibo_login{
+
+  .weibo_login {
     border-color: #f26d7e;
     color: #f26d7e;
-    background: url('../assets/images/weibo_login_10.jpg') no-repeat 20px 8px #fff;
+    background: url('../../static/images/weibo_login_10.jpg') no-repeat 10px 8px #fff;
   }
-  .weixin_login{
+
+  .weixin_login {
     border-color: #13ce66;
     color: #13ce66;
-    background: url('../assets/images/weixin_login_15.jpg') no-repeat 20px 8px #fff;
+    background: url('../../static/images/weixin_login_15.jpg') no-repeat 10px 8px #fff;
   }
 </style>

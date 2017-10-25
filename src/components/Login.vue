@@ -261,31 +261,31 @@
   .github_login {
     border-color: black;
     color: black;
-    background: url('../assets/images/github_login.png') no-repeat 20px 9px #fff;
+    background: url('../../static/images/github_login.png') no-repeat 20px 9px #fff;
   }
 
   .email_login {
     border-color: #acacac;
     color: #acacac;
-    background: url('../assets/images/email_login.jpg') no-repeat 20px 9px #fff;
+    background: url('../../static/images/email_login.jpg') no-repeat 20px 9px #fff;
   }
 
   .qq_login {
     border-color: #37b5f9;
     color: #37b5f9;
-    background: url('../assets/images/qq_login_03.jpg') no-repeat 20px 8px #fff;
+    background: url('../../static/images/qq_login_03.jpg') no-repeat 20px 8px #fff;
   }
 
   .weibo_login {
     border-color: #f26d7e;
     color: #f26d7e;
-    background: url('../assets/images/weibo_login_10.jpg') no-repeat 20px 8px #fff;
+    background: url('../../static/images/weibo_login_10.jpg') no-repeat 20px 8px #fff;
   }
 
   .weixin_login {
     border-color: #13ce66;
     color: #13ce66;
-    background: url('../assets/images/weixin_login_15.jpg') no-repeat 20px 8px #fff;
+    background: url('../../static/images/weixin_login_15.jpg') no-repeat 20px 8px #fff;
   }
 
   .authLogin {

@@ -1,6 +1,6 @@
 <template>
   <div class="beian">
-    ©2017 G9ZZ.  <router-link to="https://github.com/g9zz"> 关于我们</router-link>
+    ©2017 G9ZZ.  <a href="https://github.com/g9zz" target="_blank"> 关于我们</a>
     <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备15017682号</a>
   </div>
 </template>

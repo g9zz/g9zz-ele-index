@@ -253,5 +253,8 @@
     margin: 0 auto 15px;
     background-color: antiquewhite;
   }
+  h1 {
+    font-size: 21px;
+  }
 </style>
 

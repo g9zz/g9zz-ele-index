@@ -39,12 +39,12 @@
             <dt>关联账号</dt>
             <dd>
               <div class="setting_show_one">
-                <img src="../assets/images/github.png" v-show="githubShow" class="c" alt="github">
-                <img src="../assets/images/qq.png" v-show="qqShow" class="c" alt="qq">
-                <img src="../assets/images/weibo.png" v-show="weiboShow" class="c" alt="weibo">
-                <img src="../assets/images/weixin.png" v-show="weixinShow" class="c" alt="weixin">
-                <img src="../assets/images/xcx.png" v-show="xcxShow" class="c" alt="miniprograms">
-                <img src="../assets/images/google.png" v-show="googleShow" class="c" alt="google">
+                <img src="../../static/images/github.png" v-show="githubShow" class="c" alt="github">
+                <img src="../../static/images/qq.png" v-show="qqShow" class="c" alt="qq">
+                <img src="../../static/images/weibo.png" v-show="weiboShow" class="c" alt="weibo">
+                <img src="../../static/images/weixin.png" v-show="weixinShow" class="c" alt="weixin">
+                <img src="../../static/images/xcx.png" v-show="xcxShow" class="c" alt="miniprograms">
+                <img src="../../static/images/google.png" v-show="googleShow" class="c" alt="google">
                 <!--<span class="c">叶落山城</span>-->
               </div>
             </dd>

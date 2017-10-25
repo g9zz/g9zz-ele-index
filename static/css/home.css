@@ -8,13 +8,13 @@ ul{padding:0; margin:0;}
 li{padding:0; margin:0; list-style:none}
 img {border:0;}
 hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #353c48;}
-
+/*width:-webkit-calc( 100% -80px );*/
 #header {background:#fff;box-shadow: 0 9px 17px rgba(24, 29, 31, 0.17); position:fixed;top:0;left:0;right:0;z-index:20;}
 
-.brand {display:block;overflow:hidden;width:101px;height:32px;margin:9px 0;text-indent:-999px;background:url("../images/nice.png") no-repeat center top;-moz-background-size:cover;-webkit-background-size:cover;background-size:cover;}
+.brand {display:block;overflow:hidden;width:101px;height:32px;margin:9px 0;text-indent:-999px;background:url("../G—png.png") no-repeat center top;-moz-background-size:cover;-webkit-background-size:cover;background-size:cover;}
 
 @media print, only screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min-resolution: 144dpi), screen and (min-resolution: 144dppx){
-	.brand {background-image:url("../myLogo1.png");}
+	.brand {background-image:url("../G—png.png");}
 }
 
 .navbar-toggle {float:right;width:40px;height:32px;margin:9px 0;border:0;padding:5px 9px;cursor:pointer;background-color: #79c3fb;}
@@ -213,122 +213,6 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 }
 
 
-/* join */
-#join-bj {background-image: url("../img/bj/new.jpg"); background-size:cover; background-repeat:no-repeat;}
-.item-modile{ padding:20px; margin-bottom:20px; position: relative; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-align: center; -webkit-align-items: center; align-items: center;}
-.join-title {width:35%; text-align:center; font-size:30px; font-weight:bold; color:#fff; font-style:oblique; -webkit-text-stroke: 1px white; border-right:1px solid #fffed5}
-.join-text {width:59%; margin-left:6% }
-.join-text p { color:#fff; font-weight:200; margin:0; padding:5px 0}
-.item-modile-1 { background:url("../img/icon/modile-1.png") no-repeat; background-size:cover;}
-.item-modile-2 { background:url("../img/icon/modile-2.png") no-repeat; background-size:cover;}
-.item-modile-3 { background:url("../img/icon/modile-3.png") no-repeat; background-size:cover;}
-.item-modile-4 { background:url("../img/icon/modile-4.png") no-repeat; background-size:cover;}
-#join-bj {}
-.join-bj .item {background: rgba(19, 19, 19, 0.9) none repeat scroll 0 0;
-	height: auto;
-	line-height: 1.8;
-	margin-bottom: 10px;
-	padding: 20px;
-	position: relative;
-	text-align: center;
-}
-
-.join-bj .item h2{  color: #fff;
-	font-size: 18px;
-	font-weight: 200;
-	padding-bottom: 20px;
-}
-
-.join-bj .item p{
-	color: #e6e6e6;
-	font-size: 14px;
-	font-weight: 200;
-	margin: 0;
-}
-
-.join-proportion { width:80%; margin:0 auto; padding-bottom:20px}
-
-.item-join-1 {background-image: url("../img/icon/icon-zy.png"); background-repeat:no-repeat; background-size:200px; height:150px; background-position:center}
-.item-join-2 {background-image: url("../img/icon/icon-sf.png"); background-repeat:no-repeat; background-size:200px; height:150px; background-position:center}
-.item-title-join h4 { padding:10px 0;color: #fff;
-	font-size: 16px;
-	font-weight: 200;
-	line-height:28px;
-	margin-top: 0;
-}
-
-
-/* food */
-.item-food { margin-bottom:10px}
-.item-food h3{background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; color:#fff; font-weight:200; padding:10px 0; border-top:2px solid #e4007f; width:100%; font-size:14px; margin:0; position:absolute; bottom:0;}
-.item-food-1 a { background:url("../img/food/f-1.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-2 a { background:url("../img/food/f-2.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-3 a { background:url("../img/food/f-3.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-4 a { background:url("../img/food/f-4.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-5 a { background:url("../img/food/f-5.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-6 a { background:url("../img/food/f-6.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-7 a { background:url("../img/food/f-7.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-8 a { background:url("../img/food/f-8.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-9 a { background:url("../img/food/f-9.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-10 a { background:url("../img/food/f-10.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-11 a { background:url("../img/food/f-11.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-12 a { background:url("../img/food/f-12.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-13 a { background:url("../img/food/f-13.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-14 a { background:url("../img/food/f-14.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-15 a { background:url("../img/food/f-15.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-16 a { background:url("../img/food/f-16.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-17 a { background:url("../img/food/f-17.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-18 a { background:url("../img/food/f-18.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-19 a { background:url("../img/food/f-19.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-20 a { background:url("../img/food/f-20.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-21 a { background:url("../img/food/f-21.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-22 a { background:url("../img/food/f-22.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-23 a { background:url("../img/food/f-23.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-24 a { background:url("../img/food/f-24.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-25 a { background:url("../img/food/f-25.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-26 a { background:url("../img/food/f-26.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-27 a { background:url("../img/food/f-27.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-28 a { background:url("../img/food/f-28.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-29 a { background:url("../img/food/f-29.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-30 a { background:url("../img/food/f-30.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-31 a { background:url("../img/food/f-31.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-32 a { background:url("../img/food/f-32.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-33 a { background:url("../img/food/f-33.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-34 a { background:url("../img/food/f-34.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-35 a { background:url("../img/food/f-35.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-.item-food-36 a { background:url("../img/food/f-36.jpg") no-repeat; display:block; background-size:cover; width:100%; text-align:center; height:300px; position:relative;}
-
-
-.time-six { background:url("../img/icon/icon-lj.png") no-repeat; background-size:100%; height:300px;text-align:center; margin-bottom:10px; color:#fff; width:100%; padding:30px 20px; }
-.time-six h2 { font-size:18px; color:#fff; font-weight:800}
-.time-six h3 { font-size:18px; color:#fff; font-weight:800}
-.time-six p {  font-size:12px; color:#fff; font-weight:200}
-
-.time-six-logo {background:url("../img/icon/zh-logo.png") no-repeat;background-size:100%; height:300px;text-align:center; margin-bottom:10px; color:#fff; width:100%; padding:30px 20px; }
-
-.axis-time h4{ font-weight:normal; font-size:18px; color:#c7c7c7; margin-bottom: 0}
-.axis-time span{ font-weight:normal; font-size:14px; color:#c7c7c7; margin-bottom: 0; font-weight:200}
-.axis-title h5{ font-weight:normal; font-size:18px; color:#fff; margin-bottom: 0; margin-top:22px; font-weight:200}
-#philosophy .axis-title p { font-weight:normal; font-size:14px; color:#c7c7c7; margin-top:0; padding-top:10px; font-weight:200 }
-.axis-title h5:hover{ color:#e61d5f}
-
-/* banner new*/
-.banner{ width:100%; height:484px; overflow:hidden; position:relative;font-size:0}
-.b-img{ height:484px;  position:absolute; left:0; top:0;}
-.b-img a{ display:block; height:484px; float:left;}
-.b-list{ height:50px;position:absolute; margin:0 auto;z-index:1; left:47%; bottom:0}
-.b-list span{ display:block;cursor:pointer; width:12px; height:12px; border-radius:50%; background:#fff; float:left; margin:0 9px; _margin:0 3px;}
-.b-list .spcss{background-color: transparent; border: 1px solid #fff;}
-
-.bar-left{ position:absolute; z-index:1; display:block; width:100px; height:484px; left:0px; background:none; top:0px; }
-.bar-right{ position:absolute;z-index:1; display:block; width:100px; height:484px; right:0px; background:none; top:0px; }
-.bar-left em{ display:block; width:34px; height:40px; background:url("../img/icon/arrow.png") no-repeat; background-size:cover; margin:0 auto; margin-top:200px;}
-.bar-left .emcss{ background-position:0px -41px;}
-
-.bar-right em{ display:block; width:34px; height:40px; background:url("../img/icon/arrow1.png")no-repeat;background-size:cover;  margin:0 auto; margin-top:200px;}
-.bar-right .emcss{ background-position:0px -41px;}
-
-
 
 
 /*item-sou*/
@@ -376,44 +260,6 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 .Talents{
 	margin-top:80px;
 }
-
-
-
-
-
-/* nav*/
-.pc-nav-home .home-current {background:url("../img/nav/home.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px; }
-
-.pc-nav-food .food-current {background:url("../img/nav/food.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px;  }
-
-.pc-nav-char .char-current { background:url("../img/nav/char.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px }
-
-.pc-nav-join .join-current { background:url("../img/nav/join.png") no-repeat ; background-size:70px; background-position:center;text-indent:-9999px }
-
-.pc-nav-ente .ente-current { background:url("../img/nav/ente.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px  }
-
-
-.pc-nav-menn .menn-current { background:url("../img/nav/menn.png") no-repeat ; background-size:70px; background-position:center; text-indent:-9999px  }
-
-
-.shrink-nav .pc-nav-home .home-current {background:url("../img/nav/home.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px;}
-.shrink-nav .pc-nav-home a:hover { background:url("../img/nav/home.png") no-repeat ; background-size:60px; background-position:center;  text-indent:-9999px;}
-
-.shrink-nav .pc-nav-food .food-current {background:url("../img/nav/food.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px }
-.shrink-nav .pc-nav-food a:hover {background:url("../img/nav/food.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px }
-
-.shrink-nav .pc-nav-char .char-current { background:url("../img/nav/char.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-.shrink-nav .pc-nav-char a:hover.char-current { background:url("../img/nav/char.png") no-repeat ; background-size:60px; background-position:center;text-indent:-9999px }
-
-.shrink-nav .pc-nav-join .join-current { background:url("../img/nav/join.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-.shrink-nav .pc-nav-join a:hover.join-current { background:url("../img/nav/join.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-
-.shrink-nav .pc-nav-ente .ente-current { background:url("../img/nav/ente.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-.shrink-nav .pc-nav-ente a:hover.ente-current { background:url("../img/nav/ente.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-
-.shrink-nav .pc-nav-menn .menn-current { background:url("../img/nav/menn.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-.shrink-nav .pc-nav-menn a:hover.menn-current { background:url("../img/nav/menn.png") no-repeat ; background-size:60px; background-position:center; text-indent:-9999px  }
-
 
 
 .axis-line {width:1px; position:absolute; height:100%; left:16%; background:rgba(106, 106, 106, 0.6) none repeat scroll 0 0}

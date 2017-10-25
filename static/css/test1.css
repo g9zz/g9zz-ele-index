@@ -3232,7 +3232,7 @@ ul.top-nav-ul li.dot a.main:hover {
 
 .block-site-two .name {
   color: #333;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 700
 }
 
@@ -3426,7 +3426,7 @@ ul.top-nav-ul li.dot a.main:hover {
 }
 
 .block-list .list-one h3, .block-list2 .list-one h3 {
-  font-size: 17px;
+  font-size: 15px;
   margin-bottom: 10px;
   height: auto;
   display: flex;
@@ -5985,7 +5985,7 @@ p.help {
   }
 
   .block-question-two .l1 .c {
-    font-size: 28px;
+    font-size: 20px;
     height: 40px
   }
 
@@ -5997,7 +5997,8 @@ p.help {
     padding: 10px 10px 10px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+     width: -webkit-calc( 100% - 80px );
   }
 
   .block-question-two .l2 .ct {

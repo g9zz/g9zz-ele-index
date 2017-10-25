@@ -26,7 +26,7 @@
         </div>
         <div class="l2">
           <h3 style="margin-top: 10px">
-            <router-link  :to="'post/'+item.hid">{{ item.title }}</router-link>
+            <router-link  :to="'/post/'+item.hid">{{ item.title }}</router-link>
           </h3>
           <div class="ct">
             <router-link :to="'/node/'+item.node.hid+'/post'">

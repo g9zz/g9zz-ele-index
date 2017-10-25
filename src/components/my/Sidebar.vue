@@ -15,8 +15,8 @@
     <div class="ad">
       <div class="f-g-f"><span>ad</span></div>
       <div class="ad-img">
-        <a href="#" ><img class="ad-1" src="../assets/ad-test.jpg" alt=""></a>
-        <a href="#" ><img class="ad-1" src="../assets/ad-test.jpg" alt=""></a>
+        <a href="#" ><img class="ad-1" src="../../../static/ad-test.jpg" alt=""></a>
+        <a href="#" ><img class="ad-1" src="../../../static/ad-test.jpg" alt=""></a>
       </div>
 
     </div>
