@@ -3,7 +3,7 @@
     <div class="head">
       <el-menu :default-active="activeIndex2" class="el-menu-demo"  mode="horizontal" @select="handleSelect">
         <el-menu-item index="0"><a href="#" >全部</a></el-menu-item>
-        <el-menu-item v-for="item in popNode" :index="item.hid " :key="item.id">{{item.name}}</el-menu-item>
+        <el-menu-item v-for="item in popNode" :index="item.hid " :key="item.id">{{item.displayName}}</el-menu-item>
       </el-menu>
     </div>
     <div class="content">
