@@ -78,12 +78,17 @@
     },
     mounted() {
       this.getNodeHid();
-      this.getPostList(1);
-      this.getNodeDetail();
+//      this.getPostList(1);
+//      this.getNodeDetail();
+    },
+    watch:{
+      "$route": "getNodeHid"
     },
     methods: {
       getNodeHid() {
         this.nodeHid = this.$route.params.hid;
+        this.getPostList(1)
+        this.getNodeDetail();
       },
       /**
        * 点击分页
@@ -95,7 +100,8 @@
        * 帖子列表
        * @param page
        */
-      getPostList(page){
+      getPostList(page=1){
+
         axios({
           method:'get',
           url:'/post?node='+this.nodeHid,

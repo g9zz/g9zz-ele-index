@@ -23,11 +23,13 @@
           <router-link to="/my">
             个人中心
 
+
           </router-link>
         </h2>
         <h2 style="background-color: #fff">
           <router-link to="/my?activePage=2">
             未读动态({{ unreadNum }})
+
 
           </router-link>
         </h2>
@@ -106,13 +108,28 @@
       <!--<div class="f-g-f"><span>hot topics</span></div>-->
       <h2>hot node</h2>
       <div style="margin: 10px">
-        <router-link to="#"><el-tag style="margin: 4px"> 标签1 </el-tag></router-link>
-        <el-tag type="gray">标签二</el-tag>
-        <el-tag type="primary">标签三</el-tag>
-        <el-tag type="success">标签四</el-tag>
-        <el-tag type="warning">标签五</el-tag>
-        <el-tag type="danger">标签六</el-tag>
+        <span v-for="(item,index) in mostNode">
+          <router-link :to="'/node/'+item.hid +'/post'">
+          <span v-if="index%4 === 0">
+            <el-tag style="margin: 4px" type="danger"> {{item.displayName}} </el-tag>
+          </span>
+          <span v-else-if="index%4 === 1">
+            <el-tag style="margin: 4px" type="primary"> {{item.displayName}} </el-tag>
+          </span>
+          <span v-else-if="index%4 === 2">
+            <el-tag style="margin: 4px" type="success"> {{item.displayName}} </el-tag>
+          </span>
+          <span v-else-if="index%4 === 3">
+            <el-tag style="margin: 4px" type="warning"> {{item.displayName}} </el-tag>
+          </span>
+        </router-link>
+        </span>
       </div>
+      <span style="text-align:center;display:block">
+        <router-link to="/node">
+          <el-tag style="margin-bottom: 10px" type="danger"> >>>全部节点<<< </el-tag>
+        </router-link>
+      </span>
     </div>
     <div class="note block-user-view-info  block-right">
       <h2>note</h2>
@@ -151,6 +168,7 @@
       return {
         postSearch: '',
         hotData: [],
+        mostNode: [],
         activeNames: ['1'],
         avatarSrc: '//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg',
         name: 'G9ZZ',
@@ -162,6 +180,7 @@
     mounted() {
       this.initStyle();
       this.getPopPost();
+      this.getMostNode();
     },
     methods: {
       handleIconClick () {
@@ -216,6 +235,14 @@
           method: 'get',
         }).then((res) => {
           this.hotData = res.data.data;
+        })
+      },
+      getMostNode() {
+        axios({
+          url: '/node/most/show',
+          method: 'get'
+        }).then((res) => {
+          this.mostNode = res.data.data;
         })
       },
       clickPopPost(val){
