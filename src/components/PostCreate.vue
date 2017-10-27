@@ -13,7 +13,7 @@
             <el-option
               v-for="item in options"
               :key="item.hid"
-              :label="item.displayName"
+              :label="item.html.newHtml"
               :value="item.hid">
             </el-option>
           </el-select>
