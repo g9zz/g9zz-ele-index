@@ -37,7 +37,7 @@
                 </div>
               </a>
             </div>
-            <div class="block-site-two has-theme" style="background-size: cover;background-color: rgb(111, 169, 228); background-image: url(http://image.iphpt.com/g9zz_node_bg9.jpg);">
+            <div class="block-site-two has-theme" style="background-size: cover;background-color: rgb(111, 169, 228); background-image: url(http://image.iphpt.com/g9zz_node_bg10.jpg);">
               <div class="musk"></div>
               <a href="#">
                 <div class="ctt">
