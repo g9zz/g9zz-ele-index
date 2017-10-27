@@ -55,7 +55,7 @@
             { required: true, message: '请输入内容', trigger: 'change' }
           ]
         },
-        style: 'z-index:19;width:90%',
+        style: 'z-index:19;width:90%;min-width:0;margin-right: 20px;',
         default_open: 'edit',
         toolbars: {
           bold: true, // 粗体
@@ -123,9 +123,9 @@
       },
       fullscreen(status){
         if (status) {
-          this.style = 'z-index:22;width:100%';
+          this.style = 'z-index:22;width:100%;min-width:0;margin-right: 20px;';
         } else {
-          this.style = 'z-index:10;width:90%';
+          this.style = 'z-index:10;width:90%;min-width:0;margin-right: 20px;';
         }
       },
       changes(rendor) {
