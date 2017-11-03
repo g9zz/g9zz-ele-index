@@ -639,24 +639,9 @@ samp {
   font-weight: 400
 }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://cdn.www-static.jianda.com/css/meterial/MaterialIcons-Regular.eot);
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://cdn.www-static.jianda.com/css/meterial/MaterialIcons-Regular.woff2) format('woff2'), url(https://cdn.www-static.jianda.com/css/meterial/MaterialIcons-Regular.woff) format('woff'), url(https://cdn.www-static.jianda.com/css/meterial/MaterialIcons-Regular.ttf) format('truetype')
-}
 
-@font-face {
-  font-family: 'Jianda Number';
-  src: url(https://cdn.www-static.jianda.com/fonts/din-condensed-bold.ttf)
-}
 
-.jianda-num {
-  font-family: 'Jianda Number';
-  font-weight: 400;
-  font-size: 36px
-}
+
 
 .material-icons {
   font-family: 'Material Icons';
@@ -777,13 +762,7 @@ body {
   margin: 0
 }
 
-.site-list-header {
-  background: #555 url(https://cdn.www-static.jianda.com/img/allsite/headbg.jpg) no-repeat;
-  margin-top: -20px;
-  background-size: cover;
-  padding: 15px;
-  margin-bottom: 20px
-}
+
 
 .site-list-filter {
   background: #fff;
@@ -819,48 +798,6 @@ body {
 .home-icon {
   height: 16px;
   width: 16px
-}
-
-.notice-icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 1;
-  background: url(https://cdn.www-static.jianda.com/img/icons/notice.png) no-repeat;
-  background-size: 20px 20px
-}
-
-.gift-icon {
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  line-height: 1;
-  background: url(https://cdn.www-static.jianda.com/img/icons/gift.svg) no-repeat;
-  background-size: 64px 64px
-}
-
-.weibo-icon, .weixin-icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 1;
-  background: url(https://cdn.www-static.jianda.com/img/icons/weixin.svg) no-repeat;
-  background-size: 16px 16px
-}
-
-a:hover .weixin-icon {
-  background: url(https://cdn.www-static.jianda.com/img/icons/weixin_hover.svg) no-repeat;
-  background-size: 16px 16px
-}
-
-.weibo-icon {
-  background: url(https://cdn.www-static.jianda.com/img/icons/weibo.svg) no-repeat;
-  background-size: 16px 16px
-}
-
-a:hover .weibo-icon {
-  background: url(https://cdn.www-static.jianda.com/img/icons/weibo_hover.svg) no-repeat;
-  background-size: 16px 16px
 }
 
 span.green {
@@ -1012,24 +949,6 @@ span.red {
   text-align: left
 }
 
-.logo-white .icon {
-  width: 24px;
-  height: 24px;
-  background: url(https://cdn.www-static.jianda.com/img/logo-img-white.png);
-  background-image: url(https://cdn.www-static.jianda.com/img/logo-img-white.svg), none;
-  display: inline-block;
-  background-size: 24px 24px
-}
-
-.logo-white .logo {
-  width: 50px;
-  height: 20px;
-  background: url(https://cdn.www-static.jianda.com/img/logo-word-white.png);
-  background-image: url(https://cdn.www-static.jianda.com/img/logo-word-white.svg), none;
-  display: inline-block;
-  margin-left: 5px;
-  background-size: 50px 20px
-}
 
 .block-voice-add {
   text-align: center;
@@ -1088,24 +1007,7 @@ span.red {
   align-items: center
 }
 
-.logo-color .icon {
-  width: 24px;
-  height: 28px;
-  background: url(https://cdn.www-static.jianda.com/img/logo-img.png);
-  background-image: url(https://cdn.www-static.jianda.com/img/logo-img.svg);
-  display: inline-block;
-  background-size: 24px 28px
-}
 
-.logo-color .logo {
-  width: 50px;
-  height: 20px;
-  background: url(https://cdn.www-static.jianda.com/img/logo-word.png);
-  background-image: url(https://cdn.www-static.jianda.com/img/logo-word.svg);
-  display: inline-block;
-  margin-left: 5px;
-  background-size: 50px 20px
-}
 
 .logo-color .brand-name {
   font-size: 24px
@@ -1880,24 +1782,6 @@ a:focus, a:hover {
   width: 70px
 }
 
-.navbar-brand .site-logo {
-  background: url(https://cdn.www-static.jianda.com/img/logo-word.png);
-  background-image: url(https://cdn.www-static.jianda.com/img/logo-word.svg);
-  height: 20px;
-  display: block;
-  background-size: 50px 20px;
-  width: 50px;
-  margin-left: 5px
-}
-
-.navbar-brand .mobile-logo {
-  background: url(https://cdn.www-static.jianda.com/img/logo-img.png);
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-size: 24px 24px
-}
-
 .navbar-brand .anticon {
   color: #fff;
   font-size: 12px;
@@ -2124,13 +2008,6 @@ ul.top-nav-ul li.dot a.main:hover {
   margin-left: 20px
 }
 
-.top-nav {
-  background: #f60 url(https://cdn.www-static.jianda.com/img/bg/1.svg);
-  background-size: cover;
-  padding-top: 50px;
-  height: 240px;
-  position: relative
-}
 
 .top-nav .navbar-brand {
   float: none;
@@ -2823,13 +2700,7 @@ ul.top-nav-ul li.dot a.main:hover {
   width: 201px
 }
 
-.icon-review.disagree {
-  background: url(https://cdn.www-static.jianda.com/img/disagree.gif) no-repeat
-}
 
-.icon-review.agree {
-  background: url(https://cdn.www-static.jianda.com/img/agree.gif) no-repeat
-}
 
 .block-form {
   background: #fff;
@@ -3859,16 +3730,7 @@ ul.top-nav-ul li.dot a.main:hover {
   margin: 40px auto 0 auto
 }
 
-.iphone-screen {
-  background: url(https://cdn.www-static.jianda.com/img/hardware_full_silver_large_2x.png) no-repeat;
-  width: 482px;
-  height: 832px;
-  width: 351px;
-  height: 660px;
-  background-size: 351px 660px;
-  text-align: center;
-  padding-top: 86px
-}
+
 
 .iphone-screen .screen {
   margin: 0 44px 0 47px;
@@ -4481,10 +4343,7 @@ ul.top-nav-ul li.dot a.main:hover {
   height: 100%
 }
 
-.empty-page {
-  background: #eee url(https://cdn.www-static.jianda.com/img/bg/1.svg);
-  min-height: 100%
-}
+
 
 .block-line {
   padding: 30px;
@@ -5745,7 +5604,7 @@ p.help {
   }
 
   .navigation .left-nav .logo-white .icon {
-    background: url(https://cdn.www-static.jianda.com/img/logo-img.png);
+    background: url(http://image.iphpt.com/G-icon.jpg);
     background-size: 24px 24px
   }
 
@@ -5837,9 +5696,7 @@ p.help {
     color: #f60
   }
 
-  .navigation .top-head .nav-user .active .notice-icon {
-    background-image: url(https://cdn.www-static.jianda.com/img/icons/notice.svg)
-  }
+
 
   .navigation .top-head .nav-user .anticon-down {
     display: none

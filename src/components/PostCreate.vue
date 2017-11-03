@@ -1,7 +1,7 @@
 <template>
   <div class="card block-form block-question-add">
     <div class="reply-note l2 form-one">
-      <span style="display: block; text-align:center; ">好好说话,放下你的键盘</span>
+      <span style="display: block; text-align:center; ">放下你的键盘,好好说话</span>
     </div>
     <div class="form-one">
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" @submit.prevent="submit" label-width="100px" class="ruleForm">

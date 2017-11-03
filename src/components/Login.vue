@@ -57,7 +57,6 @@
       <div class="content clearfix">
         <div class="l1">
           <div class="user-avatar">
-            <!--<img src="//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg" class="avatar">-->
             <img :src="avatarSrc" class="avatar">
           </div>
         </div>
@@ -107,7 +106,7 @@
         captchaSrc:'', //验证码地址
         text:'',
         name: 'G9ZZ',
-        avatarSrc: '//cdn.static.jianda.com/upload/avatar/2b/78/2b7837aded7367d78b39d4f1db382cef3c5416255181603c4d5f8ec5339cafed.jpg',
+        avatarSrc: 'http://image.iphpt.com/G_logo.jpg',
         loginStyle: 'display:block',
         infoStyle: 'display:none',
       };

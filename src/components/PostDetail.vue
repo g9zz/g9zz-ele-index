@@ -85,13 +85,20 @@
     <div class="card block-form block-answer-add">
 
       <div class="reply-note l2">
-        <span>好好说话,放下你的键盘</span>
+        <span>放下你的键盘,好好说话</span>
       </div>
+
       <div class="form-one">
         <mavonEditor :style="style" :class="" v-model="content" :toolbars="toolbars" @fullscreen="fullscreen"
                      :default_open="default_open" @change="changes"></mavonEditor>
       </div>
       <div class="form-submit">
+        <span :style="isShow">
+          <el-select v-model="replyType"  placeholder="请选择">
+            <el-option label="回复"  value="reply"></el-option>
+            <el-option label="附言" value="append"></el-option>
+          </el-select>
+        </span>
         <el-button type="success" @click="submitReply">提交</el-button>
       </div>
     </div>
@@ -103,6 +110,7 @@
   import axios from '../utils/fetch.js';
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
+  import cookie from '../utils/cookie.js'
 
   export default {
     data () {
@@ -114,9 +122,13 @@
         post_created: '',
         post_content: '',
         post_script: [],
+        post_author_hid:'',
 
         post_reply_list: [],
         post_reply_num: 0,
+
+        replyType:'reply',
+        isShow:"display:none",
 
         style: 'z-index:19;width:90%;margin:auto',
         default_open: 'edit',
@@ -149,6 +161,14 @@
       "$route": "getPostDetail"
     },
     methods: {
+      replyTypeShow(){
+          let hid = cookie.getCookie('hid');
+          if (hid == this.post_author_hid) {
+              this.isShow = "";
+          } else {
+            this.isShow = "display:none";
+          }
+      },
 
       /**
        * 帖子详情
@@ -167,7 +187,10 @@
           this.post_created = result.createdAt;
           this.post_content = result.content;
           this.post_script = result.postscript;
-        })
+          this.post_author_hid = result.user.hid;
+          this.replyTypeShow();
+        });
+
       },
       getPostReplyList(page = 1) {
         axios({
@@ -177,11 +200,11 @@
             page: page,
           }
         }).then((res) => {
-//              let result = res.data.data;
           this.post_reply_list = res.data.data;
           this.post_reply_num = res.data.pager.entities;
         })
       },
+
       fullscreen(status){
         if (status) {
           this.style = 'z-index:22;width:100%;margin:auto';
@@ -199,6 +222,15 @@
         this.getPostReplyList(val);
       },
       submitReply() {
+          let type = this.replyType;
+
+          if (type == 'reply') {
+              this.sendReply();
+          } else {
+              this.sendAppend();
+          }
+      },
+      sendReply(){
         axios({
           url: '/reply',
           method: 'post',
@@ -212,7 +244,24 @@
             this.content = '';
           }
         })
+      },
+      sendAppend(){
+        axios({
+          url: '/append',
+          method: 'post',
+          params: {
+            content: this.content,
+            postHid: this.$route.params.hid
+          }
+        }).then((res) => {
+          if (res.data.code === 0) {
+            this.getPostDetail();
+            this.content = '';
+          }
+        })
       }
+
+
     }
   };
 </script>
@@ -228,7 +277,7 @@
   }
 
   .append-list {
-    background-color: #EFF2F7;
+    background-color: #fefff3;
     margin-top: 2px;
   }
 

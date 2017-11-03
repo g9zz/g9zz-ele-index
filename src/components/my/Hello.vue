@@ -175,7 +175,7 @@
 
   .box-card {
     min-height: 85px;
-    background-image: url("//cdn.static.jianda.com/upload/image/b1/fc/b1fc8a71fb8aa23de5ad4d4d3b15438324c876f73fed2cb40a2244303353e811.jpg");
+    background-image: url("http://image.iphpt.com/g9zz_node_bg10.jpg");
   }
   .page-middle {
     margin-top: 30px;
