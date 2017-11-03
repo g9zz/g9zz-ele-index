@@ -8,7 +8,17 @@
           <div class="container">
             <div class="row">
               <div class="col-md-8">
-                叶落山城
+                <li>本站是  后端php提供的数据接口  + 前端vue的Element-ui渲染的页面 + Go的一个开源包提供的搜索 + 微信小程序提供的移动端</li>
+                <br>
+                <li> 样式是参考了多方社区(我并不会设计,只会拼凑和修改)!</li>
+                <br>
+                <li> 本站以邮箱账号为主!任何三方登录必须先绑定邮箱账号,绑定成功后,点击授权登录即可登录!再也不担心一个网站多个账号了!</li>
+                <br>
+                <li> 如果有BUG等问题,请在站里留言!如果还有更多问题!可给我发邮件!或者QQ群里问也可以!</li>
+                <br>
+                <li>代码地址  <a href="https://github.com/g9zz" target="_blank">https://github.com/g9zz</a>  </li>
+                <br>
+
               </div>
               <div class="col-md-4">
                 <MyLogin></MyLogin>

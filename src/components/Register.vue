@@ -25,7 +25,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('registerForm')">注册</el-button>
-          <el-button type="primary"> <router-link to="/login">登录</router-link> </el-button>
+          <el-button type="primary"> <router-link to="/login">去登录</router-link> </el-button>
         </el-form-item>
       </el-form>
     </div>

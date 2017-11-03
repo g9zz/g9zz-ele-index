@@ -8,9 +8,15 @@
           <div class="container">
             <div class="row">
               <div class="col-md-8">
-                怎么说呢...  这个是注册...
+                <li> 这里应该放点不一样的东西!</li>
+                <br>
+                <li> 本站是  后端php提供的数据接口  + 前端vue的Element-ui渲染的页面 + Go的一个开源包提供的搜索 + 微信小程序提供的移动端</li>
+                <br>
+                <li>代码开源!随便玩...毕竟我有时间就写写,写完了,我也不知道有什么卵用.......</li>
+                <br>
+                <li>代码地址  <a href="https://github.com/g9zz" target="_blank">https://github.com/g9zz</a>  </li>
+                <br>
 
-                很牛逼的注册!
               </div>
               <div class="col-md-4">
                 <MyRegister></MyRegister>
