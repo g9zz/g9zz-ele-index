@@ -62,7 +62,7 @@
               <div v-for="item in notify_list">
                 <div class="list-one userfeed-one" :style="item.readAt ? '' : '    background-color: aliceblue;'" >
                   <p class="feed-type">
-                    <span v-if="item.type === 'reply'">提出了问题</span>
+                    <span v-if="item.type === 'reply'">回复了你</span>
                     <span v-else>@了你</span>
                     <span class="feed-time">{{item.createdAt}}</span>
                   </p>
@@ -225,7 +225,7 @@
             method: 'post'
           }).then((res) => {
             if (res.data.code === 0) {
-              this.$message.error('全部标记已读成功');
+              this.$message.success('全部标记已读成功');
               setTimeout("location.reload();",3000)
             }
           })
