@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="l3">
-          <span class="reply-count"><a href="">{{ item.replyCount}}</a> </span>
+          <span class="reply-count"><b>{{ item.replyCount}}/{{ item.viewCount}} </b> </span>
         </div>
       </div>
 
