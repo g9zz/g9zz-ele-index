@@ -5505,8 +5505,13 @@ p.help {
   }
 
   .block-feature-3 .row {
-    display: flex;
-    flex-direction: column-reverse
+    display: -webkit-box;
+    display: -moz-box;
+    display:-webkit-flex;
+    display: -ms-flexbox;
+    display:flex;
+    flex-direction: row;
+    flex-direction: column-reverse;
   }
 
   .block-feature-3 h2 {

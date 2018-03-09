@@ -94,7 +94,14 @@ hr {height:0;margin-top:10px;margin-bottom:10px;border:0;border-top:solid 1px #3
 @media (min-width: 768px) {
 	.container {width:760px;}
 	.cover-container {width:760px;margin:0 auto 5% auto;}
-	.row {margin-left:-15px;margin-right:-15px;}
+	.row {margin-left:-15px;margin-right:-15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display:-webkit-flex;
+    display: -ms-flexbox;
+    display:flex;
+    flex-wrap: nowrap!important;
+    flex-direction: row;}
 	.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12 {float:left;min-height:1px;padding-left:15px;padding-right:15px;position:relative;}
 	.col-12 {width:100%;}
 	.col-11 {width:91.66666667%;}

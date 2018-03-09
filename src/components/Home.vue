@@ -32,4 +32,7 @@
     margin-top: 10px;
     margin-right: 40px;
   }
+  .row {
+    flex-wrap: nowrap!important;
+  }
 </style>
