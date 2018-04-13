@@ -18,7 +18,7 @@ service.interceptors.request.use(config => {
 
   if (!config.params.limit) {
       console.log(config.params.limit,config.url);
-      config.params['limit'] = 50;
+      config.params['limit'] = 30;
   }
 
   if (cookie.getCookie('token') ) {

@@ -56,6 +56,11 @@
                             回答
                           于 {{ item.created }}
                           </span>
+
+                <span class="d" v-if="item.source">
+                  <i>•</i>via <img style="width: 3%;margin-bottom: 5px;" :src="item.source"  alt="">
+                </span>
+
                 <span class="d" style="float: right">{{ item.floor }}</span>
               </div>
               <div class="line"></div>

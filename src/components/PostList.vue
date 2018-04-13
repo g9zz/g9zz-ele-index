@@ -44,7 +44,7 @@
     </div>
     <div class="ft">
       <el-pagination
-        :page-size="50"
+        :page-size="30"
         layout="prev, pager, next"
         @current-change="changePage"
         :total="pageTotal">

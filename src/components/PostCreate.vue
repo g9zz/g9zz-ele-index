@@ -20,7 +20,7 @@
         </el-form-item>
 
         <el-form-item label="内容" prop="content">
-          <mavonEditor :style="style" :class="" :toolbars="toolbars" @fullscreen="fullscreen" :default_open="default_open"   @change="changes"></mavonEditor>
+          <mavonEditor :style="style" :class="" :toolbars="toolbars" @fullscreen="fullscreen" :default_open="default_open" :value="content_value"   @change="changes"></mavonEditor>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
@@ -34,15 +34,18 @@
   import axios from '../utils/fetch.js'
   import {mavonEditor} from 'mavon-editor'
   import 'mavon-editor/dist/css/index.css'
+  import cookie from '../utils/cookie.js'
+
   export default {
     data () {
       return {
         ruleForm: {
           title: '',
           node: '',
-          content:''
+          content: "234234"
         },
         options: [],
+        content_value:"",
         rules: {
           title: [
             {required: true, message: '请输入标题', trigger: 'blur'},
@@ -80,14 +83,15 @@
     components: {mavonEditor},
     mounted() {
       this.getNodeList();
+      this.content_value = cookie.getCookie('post_content')
     },
+
     methods: {
       getNodeList() {
         axios({
           method: 'get',
           url: 'node',
         }).then((res) => {
-          console.log(res.data);
           this.options = res.data.data;
         })
       },
@@ -116,9 +120,10 @@
           }).then((res)=> {
             if (res.data.code === 411000000) {
                 this.$router.push('/login')
+            } else {
+              cookie.clearCookie('post_content');
+              this.$router.push('/post/'+res.data.data.hid);
             }
-//            console.log(res.data.data.hid)
-            this.$router.push('/post/'+res.data.data.hid);
           })
       },
       fullscreen(status){
@@ -129,6 +134,7 @@
         }
       },
       changes(rendor) {
+        cookie.setCookie('post_content',rendor);
         this.ruleForm.content = rendor;
       },
     }
